@@ -12,7 +12,7 @@
 
 <h3 align="center">Know the week a competitor changes a price, and get an email<br>when one cuts a key product below yours.</h3>
 
-## 😟 The problem
+## The problem
 
 Someone checks a few competitor sites by hand, now and then. By the time anyone notices that a
 competitor cut the price of a best seller, the sales are gone. And nobody can say whether it was
