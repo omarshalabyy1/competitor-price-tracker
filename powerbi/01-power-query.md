@@ -1,6 +1,6 @@
 # 1. Power Query
 
-The report reads the local warehouse: PostgreSQL on `localhost:5440`, database `tracker`, after
+The report reads the local warehouse: PostgreSQL on `127.0.0.1:5440`, database `tracker`, after
 `docker compose up -d` and the `competitor_prices` DAG's catch-up (steps 1 to 5 of
 [`08-build-checklist.md`](08-build-checklist.md)). Nothing is read from files.
 
@@ -32,7 +32,7 @@ cannot turn a price into text.
 ## The first connection
 
 The first query you create asks for credentials: choose **Database**, user `tracker`, password =
-`WAREHOUSE_PASSWORD` from the repo's `.env`, and apply them to `localhost:5440`. If Power BI says
+`WAREHOUSE_PASSWORD` from the repo's `.env`, and apply them to `127.0.0.1:5440`. If Power BI says
 it cannot connect with encryption, choose **OK** to connect without it: the warehouse listens on
 your laptop only.
 
@@ -42,7 +42,7 @@ your laptop only.
 
 - Name: `WarehouseServer`
 - Type: Text
-- Current value: `localhost:5440`
+- Current value: `127.0.0.1:5440`
 
 Why a parameter: if the port ever changes, it changes in one place.
 

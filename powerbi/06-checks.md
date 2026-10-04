@@ -10,7 +10,7 @@ up to a later week and the numbers grow. Then run the notebook once: section 9 p
 numbers, and the SQL under each section below gives the new value for every check. Compare the report
 with those, not with the numbers written here.
 
-Run the SQL in any SQL tool on `localhost:5440`, database `tracker`, user `tracker`, or with
+Run the SQL in any SQL tool on `127.0.0.1:5440`, database `tracker`, user `tracker`, or with
 `docker compose exec warehouse psql -U tracker -d tracker`.
 
 ## The warehouse, before Power BI

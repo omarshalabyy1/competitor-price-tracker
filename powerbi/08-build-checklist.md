@@ -27,7 +27,7 @@ it is off, fix that step first.
 
 ## Power Query (`01-power-query.md`)
 
-8. **Home > Transform data**. Create the `WarehouseServer` parameter (`localhost:5440`).
+8. **Home > Transform data**. Create the `WarehouseServer` parameter (`127.0.0.1:5440`).
 9. Create the queries in this order, pasting each one's M code: `Product`, `Store`, `Daily Price`,
    `Price Change`, `Price Gap`, `Date`. The first asks for credentials: Database, user `tracker`, the
    password from `.env`.
