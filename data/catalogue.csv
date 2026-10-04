@@ -1,0 +1,361 @@
+sku,name,category,barcode,our_price,currency,is_key
+GRO-0001,Original Sichuan Chili Crisp,Condiments,0860001697803,11.59,USD,True
+GRO-0002,coffee almond toffee crunch ice cream bars,Desserts,0074570428540,4.29,USD,True
+GRO-0003,vanilla bean ice cream,Desserts,0074570650576,4.89,USD,True
+GRO-0004,Haagen dazs ice cream bars,Desserts,0074570013104,6.29,USD,True
+GRO-0005,The Tonight Dough,Desserts,0076840485116,5.09,USD,True
+GRO-0006,Tomato Ketchup,Plant based foods and beverages,0013000006408,5.19,USD,True
+GRO-0007,ALL-BUTTER SHORTBREAD FINGERS,Snacks,0039047001152,5.59,USD,True
+GRO-0008,CHIU CHOW STYLE CHILLI OIL,Condiments,0078895743050,7.29,USD,True
+GRO-0009,Coffee almond crunch snack size ice cream bars,Desserts,0074570651481,6.29,USD,True
+GRO-0010,mini vanilla milk chocolate almond ice cream bars,Desserts,0074570651498,6.09,USD,True
+GRO-0011,Medium Roast,Plant based foods and beverages,0810063343064,11.49,USD,True
+GRO-0012,Holler Mtn.,Plant based foods and beverages,0180626000162,18.99,USD,True
+GRO-0013,chocolate dark chocolate ice cream bars,Desserts,0074570023103,5.19,USD,True
+GRO-0014,dulce de leche ice cream,Desserts,0074570810116,7.09,USD,True
+GRO-0015,Pistachio Ice Cream,Desserts,0074570950034,7.49,USD,True
+GRO-0016,Gound Coffee Roasters Hairbender,Plant based foods and beverages,0180626000155,18.89,USD,True
+GRO-0017,Major Dickason's Blend,Plant based foods and beverages,0785357023567,19.99,USD,True
+GRO-0018,Big Bang Medium Roast Ground Coffee,Groceries,0785357023604,21.19,USD,True
+GRO-0019,Hazelnut Spread With Cocoa,Plant based foods and beverages,0009800895250,10.99,USD,True
+GRO-0020,Heinz ketchup,Plant based foods and beverages,0013000014458,6.29,USD,True
+GRO-0021,Farmhouse Thin & Crispy Toffee Milk Chocolate,Snacks,0014100048534,6.69,USD,True
+GRO-0022,Sriracha Hot Chili Sauce,Condiments,0024463061095,5.49,USD,True
+GRO-0023,Butter Pecan Ice Cream,Desserts,0074570114009,6.09,USD,True
+GRO-0024,Ben & Jerry's Milk and cookies pt,Desserts,0076840076574,7.49,USD,True
+GRO-0025,CHILI GARLIC SAUCE,Condiments,0078895770018,4.39,USD,True
+GRO-0026,Mango Berry,Plant based foods and beverages,0079900001233,14.89,USD,True
+GRO-0027,Petit Écolier dark chocolate 45% COCOA,Snacks,0694990012503,5.49,USD,True
+GRO-0028,Major Dickinson’s Blend,Groceries,0785357023505,15.19,USD,True
+GRO-0029,Philtered Soul coffee,Groceries,0812556030062,15.29,USD,True
+GRO-0030,Silken splendor coffee,Groceries,0812556030079,17.09,USD,True
+GRO-0031,Tesora medium blend,Groceries,0812556030093,17.19,USD,True
+GRO-0032,Salty Dark Chocolate,Snacks,0850180006053,6.09,USD,True
+GRO-0033,Stumptown Coffee Founders Whole Bean Coffee 12 Oz,Beverages and beverages preparations,0855186006281,17.09,USD,True
+GRO-0034,PASTURE RAISED EGGS,Eggs and their products,0861745000010,8.99,USD,True
+GRO-0035,Heinz tomato ketchup,Condiments,0013000004664,5.69,USD,True
+GRO-0036,Tomato ketchup,Condiments,0013000008990,5.89,USD,True
+GRO-0037,Bordeaux cookies,Snacks,0014100074106,6.59,USD,True
+GRO-0038,Milano Raspberry Chocolate,Snacks,0014100074816,6.49,USD,True
+GRO-0039,Chocolate Chunk White Chocolate Macadamia,Snacks,0014100075226,6.49,USD,True
+GRO-0040,Brussels,Snacks,0014100079460,6.99,USD,True
+GRO-0041,Chessmen Butter Cookies,Snacks,0014100079521,6.79,USD,False
+GRO-0042,Milano Milk Chocolate,Snacks,0014100099970,7.09,USD,False
+GRO-0043,CHOCOLATE CANDY & PEANUT BUTTER,Snacks,0034000460601,6.59,USD,False
+GRO-0044,Coca-Cola Original Taste Soda,Beverages and beverages preparations,0049000028904,9.59,USD,False
+GRO-0045,Coca Cola,Beverages and beverages preparations,0049000050103,3.39,USD,False
+GRO-0046,vanilla milk chocolate almond ice cream bars,Desserts,0074570033102,6.99,USD,False
+GRO-0047,Chunky Monkey,Desserts,0076840100354,6.19,USD,False
+GRO-0048,Peanut butter cup ice cream,Desserts,0076840100811,6.29,USD,False
+GRO-0049,Phish Food Ice Cream,Desserts,0076840100989,5.59,USD,False
+GRO-0050,Half Baked,Desserts,0076840101320,7.49,USD,False
+GRO-0051,americone dream,Desserts,0076840102075,6.89,USD,False
+GRO-0052,Fruit: Wyman’s Wild Blueberries,Plant based foods and beverages,0079900001691,15.59,USD,False
+GRO-0053,Chocolate Satin Pie,Snacks,0612781101199,9.29,USD,False
+GRO-0054,Dish pastry pie shells,Snacks,0612781201004,6.19,USD,False
+GRO-0055,Petit Écolier chocolate confection,Snacks,0694990083640,4.89,USD,False
+GRO-0056,Starbucks decaf house blend,Plant based foods and beverages,0762111206091,13.09,USD,False
+GRO-0057,Medium roast big bang,Groceries,0785357023529,12.49,USD,False
+GRO-0058,Major dickinson’s blend,Groceries,0785357023574,21.99,USD,False
+GRO-0059,Breathe Easy Herbal Tea,Beverages and beverages preparations,0032917000156,6.69,USD,False
+GRO-0060,Clear Mind,Beverages and beverages preparations,0851107003001,2.89,USD,False
+GRO-0061,Organic Roasted Dandelion Root,Beverages and beverages preparations,0032917001658,6.39,USD,False
+GRO-0062,Red Chili Flakes,Plant based foods and beverages,0016291441859,8.89,USD,False
+GRO-0063,Colombian,Beverages and beverages preparations,0025500304458,18.49,USD,False
+GRO-0064,Salsa,Condiments,0072878275552,3.49,USD,False
+GRO-0065,Red curry paste,Condiments,0737628003006,6.29,USD,False
+GRO-0066,Product 0762111622815,Groceries,0762111622815,18.89,USD,False
+GRO-0067,Product 0810471033342,Beverages and beverages preparations,0810471033342,18.29,USD,False
+GRO-0068,Milk Chocolate,Snacks,0858010005580,6.89,USD,False
+GRO-0069,DARK CHOCOLATE,Snacks,0009542031695,7.39,USD,False
+GRO-0070,Toasted onion dry dip mix,Condiments,0015500183764,2.19,USD,False
+GRO-0071,Celery seed,Plant based foods and beverages,0016291441101,10.49,USD,False
+GRO-0072,Chives,Plant based foods and beverages,0016291441125,10.59,USD,False
+GRO-0073,Rosemary,Plant based foods and beverages,0016291441484,8.69,USD,False
+GRO-0074,Tarragon,Plant based foods and beverages,0016291441545,10.49,USD,False
+GRO-0075,Italian Seasoning,Groceries,0016291441620,10.29,USD,False
+GRO-0076,Ground Allspice,Plant based foods and beverages,0016291441743,11.29,USD,False
+GRO-0077,Ground Cardamom,Plant based foods and beverages,0016291441873,19.69,USD,False
+GRO-0078,Garlic Salt,Groceries,0021500004503,6.79,USD,False
+GRO-0079,Classic Roast (Medium) Coffee,Beverages and beverages preparations,0025500304014,9.89,USD,False
+GRO-0080,Classic Roast,Beverages and beverages preparations,0025500304076,14.59,USD,False
+GRO-0081,Throat Coat,Beverages and beverages preparations,0032917001597,7.69,USD,False
+GRO-0082,Dark Chocolate,Snacks,0037466016450,6.79,USD,False
+GRO-0083,INTENSE ORANGE DARK CHOCOLATE,Snacks,0037466023427,7.69,USD,False
+GRO-0084,"Classic recipe white chocolate, classic recipe",Snacks,0037466047263,6.99,USD,False
+GRO-0085,vanilla ice cream,Desserts,0074570004003,6.89,USD,False
+GRO-0086,chocolate ice cream,Desserts,0074570014002,7.59,USD,False
+GRO-0087,strawberry ice cream,Desserts,0074570024001,4.99,USD,False
+GRO-0088,Coffee Ice Cream,Desserts,0074570034000,4.89,USD,False
+GRO-0089,Ice Cream,Desserts,0074570044085,4.89,USD,False
+GRO-0090,Ice Cream,Desserts,0074570084067,3.49,USD,False
+GRO-0091,Vanilla Swiss Almond Ice Cream,Desserts,0074570094004,7.09,USD,False
+GRO-0092,Green Tea Ice Cream,Desserts,0074570651405,4.69,USD,False
+GRO-0093,chocolate peanut butter ice cream,Desserts,0074570950157,4.49,USD,False
+GRO-0094,DOUBLE RASPBERRY,Desserts,0077567271051,6.99,USD,False
+GRO-0095,Blueberry Fruit Spread,Plant based foods and beverages,0084380957246,5.69,USD,False
+GRO-0096,Salted Caramel in Dark Chocolate,Snacks,0716270040027,4.49,USD,False
+GRO-0097,Espresso roast,Groceries,0762111206039,17.79,USD,False
+GRO-0098,Starbucks cafe Verona,Groceries,0762111622877,9.09,USD,False
+GRO-0099,French roast coffee,Groceries,0785357017108,17.09,USD,False
+GRO-0100,Medium roast Brazil coffee,Plant based foods and beverages,0785357023550,22.09,USD,False
+GRO-0101,Product 0785357025585,Groceries,0785357025585,16.59,USD,False
+GRO-0102,Product 0785357027947,Groceries,0785357027947,22.89,USD,False
+GRO-0103,Passion Herbal Tea,Beverages and beverages preparations,0794522200450,6.09,USD,False
+GRO-0104,Dark Roast Ground,Beverages and beverages preparations,0810063343040,14.79,USD,False
+GRO-0105,Chocolate Chip Cookies,Snacks,0810291001002,6.29,USD,False
+GRO-0106,Gluten Free Chocolate Chip Cookies,Snacks,0810291001088,7.29,USD,False
+GRO-0107,Milk Chocolate,Snacks,0858010005603,6.69,USD,False
+GRO-0108,Dunkin donuts Ground coffee imp,Plant based foods and beverages,0881334000467,16.19,USD,False
+GRO-0109,Hazelnut spread with cocoa,Breakfasts,0009800892204,14.49,USD,False
+GRO-0110,Jolly Rancher Hard candy,Snacks,0010700556868,5.89,USD,False
+GRO-0111,Hot Wasabi Flavored Peas,Snacks,0011152851716,5.89,USD,False
+GRO-0112,Tomato Ketchup Simply,Plant based foods and beverages,0013000004640,10.09,USD,False
+GRO-0113,Tomato Ketchup,Plant based foods and beverages,0013000006057,6.79,USD,False
+GRO-0114,Thin & Crispy Butter Pecan cookies,Groceries,0014100052067,6.49,USD,False
+GRO-0115,Milano Double Dark Chocolate,Snacks,0014100074724,6.89,USD,False
+GRO-0116,Green onion dip mix seasoning powder sauce,Condiments,0015500183689,2.09,USD,False
+GRO-0117,Bay Leaves,Groceries,0016291441057,12.09,USD,False
+GRO-0118,Whole Cloves,Plant based foods and beverages,0016291441163,14.59,USD,False
+GRO-0119,Cumin Seed,Plant based foods and beverages,0016291441194,10.79,USD,False
+GRO-0120,Garam masala,Plant based foods and beverages,0016291441248,9.99,USD,False
+GRO-0121,Herbs From Provence With Lavender,Plant based foods and beverages,0016291441279,11.89,USD,False
+GRO-0122,Whole Nutmeg,Plant based foods and beverages,0016291441316,12.99,USD,False
+GRO-0123,Ground Nutmeg,Groceries,0016291441323,14.79,USD,False
+GRO-0124,Parsley,Plant based foods and beverages,0016291441361,10.69,USD,False
+GRO-0125,Ground White Pepper,Groceries,0016291441385,11.39,USD,False
+GRO-0126,Whole black peppercorns,Plant based foods and beverages,0016291441392,10.69,USD,False
+GRO-0127,Fine Ground Black Pepper,Plant based foods and beverages,0016291441453,9.79,USD,False
+GRO-0128,Cayenne Pepper,Plant based foods and beverages,0016291441460,9.29,USD,False
+GRO-0129,Cajun Spice Blend,Groceries,0016291441637,11.19,USD,False
+GRO-0130,Poppy Seeds,Plant based foods and beverages,0016291441767,10.49,USD,False
+GRO-0131,Sumac,Plant based foods and beverages,0016291441927,11.29,USD,False
+GRO-0132,GUMMIES,Snacks,0019000083425,3.39,USD,False
+GRO-0133,NESCAFÉ CLÁSICO,Beverages and beverages preparations,0028000466312,12.99,USD,False
+GRO-0134,Clásico Decaf,Beverages and beverages preparations,0028000542313,12.99,USD,False
+GRO-0135,Chunky Salsa Medium,Condiments,0028400070980,6.39,USD,False
+GRO-0136,Excellence 70% Cocoa Dark Chocolate,Snacks,0037466017631,7.49,USD,False
+GRO-0137,SHORTBREAD ROUNDS 150G - WALKERS - 150g,Snacks,0039047001404,6.39,USD,False
+GRO-0138,Liquid Smoke - Hickory,Condiments,0041421177452,4.59,USD,False
+GRO-0139,Tomato Soup,Plant based foods and beverages,0051000000118,1.39,USD,False
+GRO-0140,Cream Of Mushroom Soup,Plant based foods and beverages,0051000012616,2.69,USD,False
+GRO-0141,Sea salt grinder,Condiments,0052100746029,3.69,USD,False
+GRO-0142,SWEDISH THINS Ginger,Snacks,0054358011263,3.69,USD,False
+GRO-0143,Old Bay Seasoning 12/6 OZ imp,Plant based foods and beverages,0070328005230,6.99,USD,False
+GRO-0144,Cookies and Cream,Desserts,0070934996052,6.79,USD,False
+GRO-0145,Strawberry,Desserts,0070934996168,6.79,USD,False
+GRO-0146,Dark Roast,Plant based foods and beverages,0074471042388,12.29,USD,False
+GRO-0147,Product 0074471945283,Groceries,0074471945283,11.89,USD,False
+GRO-0148,Rum Raisin Ice Cream,Desserts,0074570044009,7.69,USD,False
+GRO-0149,"Raspberry sorbet, raspberry",Desserts,0074570434008,7.19,USD,False
+GRO-0150,Non-dairy sorbet,Desserts,0074570444007,7.29,USD,False
+GRO-0151,Vanilla Salted Carmel Belgian Waffle Cones,Desserts,0074570857173,8.39,USD,False
+GRO-0152,Egg Whites,Groceries,0075900333312,4.89,USD,False
+GRO-0153,Cherry Garcia,Desserts,0076840674442,7.89,USD,False
+GRO-0154,Echinacea Immune Support Tea,Groceries,0076950450103,6.49,USD,False
+GRO-0155,Almonds & Sea Salt in Dark Chocolate,Snacks,0716270001554,5.09,USD,False
+GRO-0156,Premium Chocolate Assortment,Snacks,0747599433306,8.39,USD,False
+GRO-0157,INTENSE DARK 72% CACAO DARK CHOCOLATE,Snacks,0747599607219,4.99,USD,False
+GRO-0158,Intense Dark 86% Cacao Dark Chocolate,Snacks,0747599607257,4.99,USD,False
+GRO-0159,Meyer Lemon Cookies,Groceries,0756963161165,6.09,USD,False
+GRO-0160,Product 0762111206053,Groceries,0762111206053,13.89,USD,False
+GRO-0161,french Roast dark,Groceries,0762111206121,17.89,USD,False
+GRO-0162,Starbucks French roast,Groceries,0762111206138,19.19,USD,False
+GRO-0163,Veranda Blend,Plant based foods and beverages,0762111287915,17.29,USD,False
+GRO-0164,Product 0762111622853,Groceries,0762111622853,9.69,USD,False
+GRO-0165,Decaf Caffè Verona,Plant based foods and beverages,0762111622891,10.99,USD,False
+GRO-0166,Single-Origin Sumatra Dark Roast Ground Coffee,Groceries,0762111622914,9.19,USD,False
+GRO-0167,Decaf French Roast,Groceries,0785357022508,17.49,USD,False
+GRO-0168,French roast,Groceries,0785357025523,17.89,USD,False
+GRO-0169,Dark Roast French Roast Whole Bean Coffee,Groceries,0785357025530,18.49,USD,False
+GRO-0170,Product 0785357025615,Groceries,0785357025615,18.79,USD,False
+GRO-0171,Philiz Coffee,Groceries,0812556030000,16.49,USD,False
+GRO-0172,Coffee,Plant based foods and beverages,0840121600150,18.69,USD,False
+GRO-0173,Coffee Chocolate Chip Frozen Greek Yogurt Bars,Desserts,0851035003326,6.89,USD,False
+GRO-0174,Organic Eggs,Eggs and their products,0861745000027,15.09,USD,False
+GRO-0175,Fine Hazelnut Chocolates,Snacks,0009800000715,8.29,USD,False
+GRO-0176,Nutella & Go! With Pretzel Sticks,Snacks,0009800800100,7.59,USD,False
+GRO-0177,Nutella,Plant based foods and beverages,0009800895007,5.49,USD,False
+GRO-0178,"Heinz Tomato Ketchup, 2 count, 50.5 oz",Condiments,0013000001038,11.99,USD,False
+GRO-0179,Heinz Tomato Ketchup Value Size,Condiments,0013000001212,8.69,USD,False
+GRO-0180,Tomato Ketchup,Plant based foods and beverages,0013000001243,4.79,USD,False
+GRO-0181,Product 0013000011105,Plant based foods and beverages,0013000011105,10.49,USD,False
+GRO-0182,"Tomato ketchup, tomato",Condiments,0013000626057,10.39,USD,False
+GRO-0183,Milano Double Milk Chocolate,Snacks,0014100047438,6.69,USD,False
+GRO-0184,"Cookies, thin and crispy, milk chocolate chip",Snacks,0014100048107,6.89,USD,False
+GRO-0185,Soft Baked Newport Dark Chocolate with Sea Salt,Snacks,0014100054740,6.69,USD,False
+GRO-0186,Ojai Lemon Sugar Cookie,Snacks,0014100054757,7.39,USD,False
+GRO-0187,Lemon White Chocolate Milano,Groceries,0014100055273,6.49,USD,False
+GRO-0188,Milano Strawberry White Chocolate,Snacks,0014100055297,7.29,USD,False
+GRO-0189,Milano Dark Chocolate,Snacks,0014100074120,6.49,USD,False
+GRO-0190,Milano Orange Flavored Chocolate Cookies,Snacks,0014100074359,7.09,USD,False
+GRO-0191,Shortbread cookies Dublin,Snacks,0014100074441,7.19,USD,False
+GRO-0192,Gingerman,Snacks,0014100074458,5.89,USD,False
+GRO-0193,Apricot raspberry thumbprint cookies,Snacks,0014100074625,6.69,USD,False
+GRO-0194,Pepperidge farm cookies,Snacks,0014100074649,6.99,USD,False
+GRO-0195,Chesapeake Dark Chocolate Pecan,Snacks,0014100077084,6.79,USD,False
+GRO-0196,Double Chocolate Nantucket Dark Chocolate,Snacks,0014100078609,6.09,USD,False
+GRO-0197,Santa Cruz Oatmeal Raisin Cookie,Snacks,0014100078845,6.49,USD,False
+GRO-0198,Montauk Milk Chocolate,Snacks,0014100089001,6.89,USD,False
+GRO-0199,Product 0015124193071,Groceries,0015124193071,26.09,USD,False
+GRO-0200,Vanilla Bean,Groceries,0016291441576,18.19,USD,False
+BOK-0001,Brain on Fire: My Month of Madness,Books,,46.99,GBP,False
+BOK-0002,Lord of the Flies,Books,,26.09,GBP,False
+BOK-0003,"House by the Lake, The",Books,,37.69,GBP,False
+BOK-0004,Lies and Other Acts of Love,Books,,48.39,GBP,False
+BOK-0005,Needful Things (Hardcover),Books,,48.79,GBP,False
+BOK-0006,Unicorn Tracks (Hardcover),Books,,19.99,GBP,False
+BOK-0007,Soul Reader (Paperback),Books,,39.79,GBP,False
+BOK-0008,Girl in the Blue Coat,Books,,46.39,GBP,False
+BOK-0009,"Mysterious Affair at Styles (Hercule Poirot #1), The (Hardcover)",Books,,26.39,GBP,False
+BOK-0010,"Layered: Baking, Building, and Styling Spectacular Cakes (Hardcover)",Books,,43.29,GBP,False
+BOK-0011,One with You (Crossfire #5) (Paperback),Books,,15.09,GBP,False
+BOK-0012,"Firm, The (Hardcover)",Books,,44.29,GBP,True
+BOK-0013,The Natural History of Us (The Fine Art of Pretending #2) (Paperback),Books,,46.79,GBP,False
+BOK-0014,The Iliad (Hardcover),Books,,15.99,GBP,False
+BOK-0015,Playing from the Heart (Paperback),Books,,30.49,GBP,False
+BOK-0016,Why the Right Went Wrong (Paperback),Books,,49.79,GBP,False
+BOK-0017,Behind Closed Doors,Books,,53.39,GBP,True
+BOK-0018,On a Midnight Clear (Hardcover),Books,,15.19,GBP,False
+BOK-0019,23 Degrees South: A Tropical Tale of Changing Whether... (Hardcover),Books,,38.69,GBP,False
+BOK-0020,"Fabric of the Cosmos: Space, Time, and the Texture of Reality, The (Hardcover)",Books,,58.29,GBP,False
+BOK-0021,The Age of Genius: The Seventeenth Century and the Birth of the Modern Mind (Hardcover),Books,,18.79,GBP,False
+BOK-0022,The Last Mile,Books,,57.49,GBP,False
+BOK-0023,Mama Tried (Paperback),Books,,13.79,GBP,False
+BOK-0024,Musicophilia: Tales of Music and the Brain (Paperback),Books,,47.69,GBP,False
+BOK-0025,"NaNo What Now? Finding your editing process, revising your NaNoWriMo book and building a writing career through publishing and beyond (Paperback)",Books,,10.99,GBP,False
+BOK-0026,The Nameless City (Paperback),Books,,41.19,GBP,False
+BOK-0027,Extreme Prey (Lucas Davenport #26) (Hardcover),Books,,25.39,GBP,False
+BOK-0028,A Year in Provence (Provence #1) (Paperback),Books,,53.79,GBP,False
+BOK-0029,"Court of Thorns and Roses (A Court of Thorns and Roses #1), A",Books,,53.49,GBP,True
+BOK-0030,1st to Die (Women's Murder Club #1) (Paperback),Books,,56.99,GBP,True
+BOK-0031,Through the Woods,Books,,24.39,GBP,False
+BOK-0032,Vogue Colors A to Z: A Fashion Coloring Book,Books,,49.39,GBP,False
+BOK-0033,"Game of Thrones (A Song of Ice and Fire #1), A",Books,,43.79,GBP,True
+BOK-0034,Charity's Cross (Charles Towne Belles #4) (Hardcover),Books,,43.39,GBP,True
+BOK-0035,"The Mindfulness and Acceptance Workbook for Anxiety: A Guide to Breaking Free from Anxiety, Phobias, and Worry Using Acceptance and Commitment Therapy",Books,,23.49,GBP,False
+BOK-0036,"Power Greens Cookbook, The",Books,,11.39,GBP,False
+BOK-0037,"Expatriates, The",Books,,46.99,GBP,False
+BOK-0038,Keep Me Posted (Paperback),Books,,21.39,GBP,False
+BOK-0039,"Unbound: How Eight Technologies Made Us Human, Transformed Society, and Brought Our World to the Brink",Books,,23.99,GBP,False
+BOK-0040,"Unbroken: A World War II Story of Survival, Resilience, and Redemption",Books,,48.39,GBP,False
+BOK-0041,Untitled Collection: Sabbath Poems 2014,Books,,13.59,GBP,True
+BOK-0042,Give It Back,Books,,19.19,GBP,False
+BOK-0043,Are We Smart Enough to Know How Smart Animals Are? (Paperback),Books,,56.69,GBP,False
+BOK-0044,"Wedding Dress, The (Hardcover)",Books,,25.29,GBP,True
+BOK-0045,I Know What I'm Doing -- and Other Lies I Tell Myself: Dispatches from a Life Under Construction (Hardcover),Books,,24.39,GBP,True
+BOK-0046,"Book of Mormon, The",Books,,23.09,GBP,False
+BOK-0047,The Nerdy Nummies Cookbook: Sweet Treats for the Geek in All of Us (Hardcover),Books,,37.29,GBP,False
+BOK-0048,The Hobbit (Middle-Earth Universe),Books,,18.89,GBP,False
+BOK-0049,Algorithms to Live By (Paperback),Books,,32.59,GBP,True
+BOK-0050,What If? (Paperback),Books,,55.39,GBP,False
+BOK-0051,Demigods & Magicians (Paperback),Books,,39.99,GBP,True
+BOK-0052,"Fruits Basket, Vol. 6 (Fruits Basket #6)",Books,,19.99,GBP,False
+BOK-0053,Green Eggs and Ham (Beginner Books B-16) (Paperback),Books,,10.69,GBP,False
+BOK-0054,We the People: The Modern-Day Figures Who Have Reshaped and Affirmed the Founding Fathers' Vision of America,Books,,30.49,GBP,False
+BOK-0055,Large Print Heart of the Pride (Paperback),Books,,18.89,GBP,True
+BOK-0056,"Giant Days, Vol. 2 (Giant Days #5-8) (Hardcover)",Books,,22.09,GBP,True
+BOK-0057,The Grand Design (Paperback),Books,,13.09,GBP,False
+BOK-0058,Settling the Score,Books,,42.39,GBP,False
+BOK-0059,"Geography of Bliss: One Grump's Search for the Happiest Places in the World, The",Books,,29.79,GBP,False
+BOK-0060,First Steps for New Christians (Print Edition),Books,,28.79,GBP,False
+BOK-0061,Furiously Happy: A Funny Book About Horrible Things (Hardcover),Books,,39.19,GBP,True
+BOK-0062,In the Country We Love: My Family Divided (Paperback),Books,,21.39,GBP,True
+BOK-0063,"Barefoot Contessa Cookbook, The",Books,,57.79,GBP,False
+BOK-0064,"Purest Hook, The",Books,,12.19,GBP,False
+BOK-0065,"Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing, The",Books,,17.99,GBP,False
+BOK-0066,Better Homes and Gardens New Cook Book (Hardcover),Books,,40.59,GBP,False
+BOK-0067,"Murder That Never Was, The",Books,,52.59,GBP,False
+BOK-0068,"Data, A Love Story: How I Gamed Online Dating to Meet My Match (Paperback)",Books,,33.69,GBP,False
+BOK-0069,Anonymous (Hardcover),Books,,44.29,GBP,False
+BOK-0070,"Bourne Identity (Jason Bourne #1), The",Books,,42.39,GBP,False
+BOK-0071,"Where'd You Go, Bernadette",Books,,17.79,GBP,False
+BOK-0072,A Gathering of Shadows (Shades of Magic #2) (Hardcover),Books,,48.29,GBP,False
+BOK-0073,"Fruits Basket, Vol. 9",Books,,36.09,GBP,False
+BOK-0074,Packing for Mars,Books,,55.99,GBP,False
+BOK-0075,Clockwork Angel (The Infernal Devices #1) (Hardcover),Books,,41.39,GBP,True
+BOK-0076,I Will Find You (Hardcover),Books,,47.49,GBP,False
+BOK-0077,Of Mice and Men (Hardcover),Books,,45.39,GBP,True
+BOK-0078,Out of Print: City Lights Spotlight No. 14 (Hardcover),Books,,53.99,GBP,False
+BOK-0079,Raspberry Pi Electronics Projects for the Evil Genius (Hardcover),Books,,52.29,GBP,True
+BOK-0080,"Far & Away: Places on the Brink of Change: Seven Continents, Twenty-Five Years (Hardcover)",Books,,14.69,GBP,False
+BOK-0081,The Bane Chronicles (The Bane Chronicles #1-11),Books,,46.09,GBP,False
+BOK-0082,Life After Life (Hardcover),Books,,27.19,GBP,False
+BOK-0083,Library of Souls,Books,,46.29,GBP,False
+BOK-0084,The Travelers (Paperback),Books,,16.89,GBP,False
+BOK-0085,Orange Is the New Black,Books,,22.99,GBP,False
+BOK-0086,The Help Yourself Cookbook for Kids: 60 Easy Plant-Based Recipes Kids Can Make to Stay Healthy and Save the Earth,Books,,29.59,GBP,True
+BOK-0087,Political Suicide,Books,,38.99,GBP,False
+BOK-0088,"Raven King (The Raven Cycle #4), The (Paperback)",Books,,30.69,GBP,True
+BOK-0089,Every Last Word,Books,,46.79,GBP,False
+BOK-0090,Counted With the Stars (Out from Egypt #1) (Hardcover),Books,,17.39,GBP,True
+BOK-0091,The Drowning Girls (Hardcover),Books,,35.89,GBP,False
+BOK-0092,Life,Books,,33.09,GBP,False
+BOK-0093,"Three Searches, Meaning, and the Story, The (Hardcover)",Books,,13.69,GBP,False
+BOK-0094,"Guns of August, The (Hardcover)",Books,,14.19,GBP,False
+BOK-0095,Shadows of the Past (Logan Point #1),Books,,38.69,GBP,False
+BOK-0096,"It's All Easy: Healthy, Delicious Weeknight Meals in under 30 Minutes (Paperback)",Books,,21.09,GBP,False
+BOK-0097,Harry Potter and the Deathly Hallows (Harry Potter #7) (Hardcover),Books,,21.79,GBP,False
+BOK-0098,"Bleach, Vol. 1: Strawberry and the Soul Reapers (Bleach #1)",Books,,34.59,GBP,False
+BOK-0099,Sense and Sensibility,Books,,36.09,GBP,False
+BOK-0100,Like Never Before (Hardcover),Books,,27.39,GBP,False
+DEV-0001,Memo Pad HD 7 IPS Dual-Core 1.2GHz Android 4.3,Tablets,,108.39,USD,False
+DEV-0002,Toshiba Portege Z30-C-16J Grey Windows 10 Pro 13.3 inch FHD 8GB Core i5-6200U,Laptops,,1044.89,USD,False
+DEV-0003,Asus ROG Strix SCAR Edition GL503VM-ED115T 15.6 inch FHD 120Hz GeForce GTX 1060 6GB 16GB Core i7-7700HQ Windows 10 Home,Laptops,,1804.19,USD,False
+DEV-0004,Toshiba Portege X30-D-10J Black/Blue 8GB 256GB SSD 13.3 inch FHD IPS Core i5-7200U,Laptops,,1194.09,USD,False
+DEV-0005,Acer Swift 1 SF113-31 Silver Windows 10 Home 13.3 inch FHD Pentium N4200 128GB SSD,Laptops,,476.49,USD,False
+DEV-0006,MeMO Pad 7 White Atom 1.2GHz 8GB 7 inch,Tablets,,134.49,USD,True
+DEV-0007,IdeaTab A3500-H Blue Quad-Core 1.3GHz 7 inch IPS 8GB 3G,Tablets,,148.69,USD,False
+DEV-0008,Apple MacBook Air 13 inch 8GB 256GB SSD i5 1.8GHz ENG,Laptops,,1218.09,USD,True
+DEV-0009,ThinkPad Yoga 12.5 inch Touch 4GB Core i3-4010U,Laptops,,1011.19,USD,False
+DEV-0010,Asus VivoBook E502NA-GO022T Dark Blue 128GB SSD En/Ru kbd 4GB 15.6 inch HD Pentium N4200 1.1GHz,Laptops,,394.99,USD,False
+DEV-0011,Packard 255 G2 15.6 inch AMD E2-3800 1.3GHz Windows 8.1 500GB,Laptops,,408.99,USD,True
+DEV-0012,Galaxy Tab 3 7 inch 8GB Wi-Fi White,Tablets,,92.99,USD,False
+DEV-0013,Asus ASUSPRO B9440UA-GV0279R Gray 16GB 512GB SSD Windows 10 Pro 14 inch FHD Core i7-7500U,Laptops,,1364.19,USD,False
+DEV-0014,Toshiba Portege Z30-C-16K Grey Core i5-6200U Windows 10 Pro 4G 13.3 inch FHD 8GB,Laptops,,1286.69,USD,False
+DEV-0015,Asus AsusPro Advanced BU401LA-FA271G Dark Grey Core i5-4210U 4GB 14 inch Win7 Pro 64bit ENG,Laptops,,1126.69,USD,False
+DEV-0016,Acer Aspire A315-31-C33J Black 15.6 inch Celeron N3350 4GB DDR3L HD ENG 128GB,Laptops,,366.09,USD,True
+DEV-0017,Hewlett Packard ProBook 640 G3 8GB 256GB SSD Core i7-7600U Windows 10 Pro,Laptops,,1234.29,USD,True
+DEV-0018,Dell Latitude 5480 256GB SSD Core i5-7300U 8GB 14 inch FHD,Laptops,,1276.29,USD,False
+DEV-0019,Asus VivoBook Pro 15 N580VN-FI006T Gold Metal Core i7-7700HQ 16GB Windows 10 Home 15.6 inch UHD 1TB + 256GB SSD Eng kbd,Laptops,,1204.69,USD,False
+DEV-0020,Dell Inspiron 15 (7567) Black 8GB Linux + Windows 10 Home 15.6 inch FHD 1TB GeForce GTX 1050 Ti 4GB,Laptops,,1065.99,USD,False
+DEV-0021,Dell Vostro 15 (3568) Black Core i5-7200U 15.6 inch FHD Radeon R5 M420 2GB Linux 4GB,Laptops,,489.49,USD,False
+DEV-0022,Apple MacBook Pro 13 inch Space Gray ENG Iris Plus 640 128GB SSD Core i5 2.3GHz,Laptops,,1250.79,USD,True
+DEV-0023,Acer Aspire 3 A315-31 Black 4GB Windows 10 Home Pentium N4200 1.1GHz 15.6 inch HD,Laptops,,421.29,USD,False
+DEV-0024,Galaxy Note 10.1 inch Android 4.0 Garnet Red,Tablets,,374.09,USD,False
+DEV-0025,Lenovo ThinkPad E31-80 13.3 inch HD Celeron 3855U 1.6GHz Windows 10 Home 4GB,Laptops,,387.99,USD,False
+DEV-0026,Galaxy Tab 4 LTE (SM-T235) 8GB Quad-Core 1.2GHz,Tablets,,224.89,USD,False
+DEV-0027,Lenovo V110-15ISK 128GB SSD Windows 10 Home 15.6 inch HD Core i3-6006U,Laptops,,394.59,USD,False
+DEV-0028,IdeaTab A8-50 Blue Android 4.2 Quad-Core 1.3GHz 8 inch IPS,Tablets,,124.69,USD,False
+DEV-0029,Acer Aspire ES1-572 Black Core i5-7200U 15.6 inch HD 4GB Linux,Laptops,,487.49,USD,True
+DEV-0030,Galaxy Note 12.2 inch WiFi Android 4.4 32GB,Tablets,,457.49,USD,False
+DEV-0031,Lenovo Legion Y720 DOS 8GB GeForce GTX 1060 6GB Core i7-7700HQ RGB backlit keyboard 15.6 inch FHD IPS,Laptops,,1489.59,USD,False
+DEV-0032,MSI GL62M 7REX2 8GB Core i7-7700HQ 1TB + 128GB SSD GeForce GTX 1050 Ti 2GB 15.6 inch FHD,Laptops,,1149.39,USD,False
+DEV-0033,Aspire E1-510 15.6 inch 500GB 4GB Pentium N3520 2.16GHz,Laptops,,316.09,USD,False
+DEV-0034,Lenovo IdeaPad Miix 510 Platinum Silver Core i5-7200U Windows 10 Pro 12.2 inch IPS Touch 4G 256GB SSD,Laptops,,1127.89,USD,False
+DEV-0035,Acer Aspire ES1-572 Black Core i3-6006U 128GB SSD 15.6 inch HD Linux,Laptops,,375.09,USD,False
+DEV-0036,Lenovo V110-15IAP Celeron N3350 1.1GHz 128GB SSD 15.6 inch HD Windows 10 Home,Laptops,,333.49,USD,True
+DEV-0037,Acer Aspire 3 A315-51 4GB Core i3-6006U 15.6 inch HD 1TB,Laptops,,429.59,USD,False
+DEV-0038,"Inspiron 15 Moon Silver 1TB 8GB Core i7-4510U Radeon HD R7 M265 2GB,",Laptops,,698.39,USD,True
+DEV-0039,Acer Iconia 7 inch screen 16GB,Tablets,,101.89,USD,True
+DEV-0040,Acer Extensa 15 (2540) Black Linux 4GB 500GB 15.6 inch HD,Laptops,,432.89,USD,False
+DEV-0041,Dell Latitude 5480 500GB 8GB Core i5-7300U 14 inch FHD,Laptops,,1211.69,USD,False
+DEV-0042,Dell XPS 13 13.3 inch Touch 128GB SSD Windows 8.1 8GB,Laptops,,1212.89,USD,False
+DEV-0043,Asus EeeBook R416NA-FA014T 14 inch FHD Eng kbd Pentium N4200 4GB Windows 10 Home,Laptops,,411.59,USD,False
+DEV-0044,Asus VivoBook 15 X540UA-DM260 Chocolate Black Endless OS Core i3-6006U En kbd 4GB 256GB SSD,Laptops,,458.79,USD,False
+DEV-0045,iPad Mini Retina Wi-Fi + Cellular 32GB,Tablets,,563.59,USD,False
+DEV-0046,Acer Aspire 3 A315-31 Black 4GB 15.6 inch HD 128GB SSD Celeron N3350 1.1GHz,Laptops,,360.49,USD,True
+DEV-0047,Nokia 123 7 day battery,Phones,,23.39,USD,False
+DEV-0048,Dell Latitude 5480 Windows 10 Pro 1TB 14 inch FHD GeForce GT930MX Core i7-7600U,Laptops,,1232.59,USD,True
+DEV-0049,HP 350 G1 15.6 inch 4GB Radeon HD8670M 2GB 750GB Windows,Laptops,,552.59,USD,True
+DEV-0050,LG Optimus 3.2 inch screen,Phones,,57.99,USD,False
+DEV-0051,Toshiba Portege Z30-C-16L Grey Windows 10 Pro 256GB SSD 8GB 13.3 inch FHD,Laptops,,1121.69,USD,False
+DEV-0052,Galaxy Note 10.1 10.1 inch 32GB,Tablets,,611.99,USD,True
+DEV-0053,Dell Latitude 5580 Windows 10 Pro 256GB SSD 15.6 inch FHD 8GB,Laptops,,1090.69,USD,False
+DEV-0054,Asus VivoBook S14 (S406UA-BV041T) Starry Grey 256GB SSD Eng kbd 14 inch 8GB Core i5-8250U,Laptops,,705.49,USD,False
+DEV-0055,Prestigio SmartBook 133S Gold 32GB 13.3 inch FHD IPS 4GB Celeron N3350 1.1GHz,Laptops,,307.39,USD,False
+DEV-0056,Hewlett Packard 250 G6 Dark Ash Silver 128GB SSD DOS 4GB Celeron N3060 1.6GHz,Laptops,,384.99,USD,False
+DEV-0057,Acer Aspire ES1-572 Black 4GB Windows 10 Home Core i3-6006U 128GB SSD,Laptops,,439.89,USD,False
+DEV-0058,MSI GL72M 7RDX 8GB 1TB + 128GB SSD Windows 10 Home 17.3 inch FHD Core i5-7300HQ,Laptops,,1096.19,USD,False
+DEV-0059,Apple iPad Air Wi-Fi Silver,Tablets,,571.29,USD,False
+DEV-0060,Lenovo Legion Y520-15IKBM DOS 128GB SSD + 1TB 15.6 inch FHD IPS Core i7-7700HQ 8GB,Laptops,,1127.19,USD,True

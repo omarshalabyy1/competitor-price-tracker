@@ -1,0 +1,60 @@
+# The warehouse (Postgres) and Airflow. Both listen on 127.0.0.1 only.
+#
+#   docker compose up -d --build   # Airflow http://127.0.0.1:8090 (no login), warehouse localhost:5440
+#   docker compose down            # stops everything; the data volumes stay
+#
+# Settings come from .env (gitignored; copy .env.example).
+
+name: competitor-price-tracker
+
+services:
+  warehouse:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tracker
+      POSTGRES_PASSWORD: ${WAREHOUSE_PASSWORD:?set in .env}
+      POSTGRES_DB: tracker
+    ports:
+      - "127.0.0.1:5440:5432"
+    volumes:
+      - warehouse-data:/var/lib/postgresql/data
+      - ./sql/airflow-db.sql:/docker-entrypoint-initdb.d/airflow-db.sql:ro  # on a new warehouse only
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tracker -d tracker"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  airflow:
+    build: .
+    image: competitor-price-tracker:3.3.2
+    # Scheduler, DAG processor and API server in one container. If one of them stops,
+    # the container exits and Docker restarts it.
+    command: >-
+      bash -c "airflow db migrate && { airflow scheduler & airflow dag-processor & airflow api-server --port 8080 & wait -n; exit 1; }"
+    restart: unless-stopped
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS: "true"
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://tracker:${WAREHOUSE_PASSWORD}@warehouse:5432/airflow
+      PYTHONPATH: /opt/project  # so the DAG can import tracker.py
+      WAREHOUSE_HOST: warehouse
+      WAREHOUSE_PORT: "5432"
+      WAREHOUSE_PASSWORD: ${WAREHOUSE_PASSWORD}
+      GMAIL_USER: ${GMAIL_USER:-}
+      GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD:-}
+      MAIL_TO: ${MAIL_TO:-}
+    ports:
+      - "127.0.0.1:8090:8080"
+    volumes:
+      - airflow-home:/opt/airflow
+      - ./dags:/opt/airflow/dags
+      - .:/opt/project
+    depends_on:
+      warehouse:
+        condition: service_healthy
+
+volumes:
+  warehouse-data:
+  airflow-home:

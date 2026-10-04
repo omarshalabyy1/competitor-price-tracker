@@ -1,0 +1,64 @@
+// 3. Measures. In the Measures table: Table tools -> New measure -> paste one measure at a time,
+// then set its Format and Display folder (Measure tools) as written in its comment.
+
+// ---------- Page 1: Price gaps (display folder "Gaps") ----------
+
+// Our products with at least one competitor price. Format: Whole number #,0
+Products Tracked =
+DISTINCTCOUNT ( 'Price Gap'[sku] )
+
+// Competitor stores selling at least one of our products. Format: Whole number #,0
+Stores Tracked =
+DISTINCTCOUNT ( 'Price Gap'[store_id] )
+
+// Competitor listings matched to our products. Format: Whole number #,0
+Listings Compared =
+COUNTROWS ( 'Price Gap' )
+
+// Listings whose latest price is below ours. Format: Whole number #,0
+Cheaper Than Us =
+CALCULATE ( [Listings Compared], 'Price Gap'[gap_pct] < 0 )
+
+// Share of listings priced below ours. Format: Percentage 0.0%
+Share Cheaper Than Us =
+DIVIDE ( [Cheaper Than Us], [Listings Compared] )
+
+// Average gap of competitor prices against ours; below zero = competitors cheaper. Format: Percentage 0.0%
+Average Gap =
+VAR GapInPercent = AVERAGE ( 'Price Gap'[gap_pct] )
+RETURN
+    DIVIDE ( GapInPercent, 100 )
+
+// ---------- Page 2: Price changes (display folder "Changes") ----------
+
+// Every price change on our products. Format: Whole number #,0
+Price Changes =
+COUNTROWS ( 'Price Change' )
+
+// Changes that lowered the price. Format: Whole number #,0
+Price Cuts =
+CALCULATE ( [Price Changes], 'Price Change'[Direction] = "Cut" )
+
+// Changes that raised the price. Format: Whole number #,0
+Price Rises =
+CALCULATE ( [Price Changes], 'Price Change'[Direction] = "Rise" )
+
+// Cuts that took a key product below our price: what the alert email reports. Format: Whole number #,0
+Undercuts =
+CALCULATE ( [Price Changes], 'Price Change'[is_undercut] = TRUE () )
+
+// Average size of a change. Format: Percentage 0.0%
+Average Change =
+VAR ChangeInPercent = AVERAGE ( 'Price Change'[change_pct] )
+RETURN
+    DIVIDE ( ChangeInPercent, 100 )
+
+// ---------- Page 2: price history chart (display folder "History") ----------
+
+// A competitor's price on a day (one price per listing per day, so the average is that price). Format: 0.00
+Competitor Price =
+AVERAGE ( 'Daily Price'[price] )
+
+// Our price for the one product selected; blank when several are selected. Format: 0.00
+Our Price =
+SELECTEDVALUE ( Product[our_price] )

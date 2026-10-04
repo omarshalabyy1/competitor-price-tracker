@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 290" width="1000" height="290" role="img" aria-label="How it works: 01 Collect, competitor prices read every week inside each source's limits; 02 Match, each competitor listing paired with our product by barcode or by name; 03 Store, every price kept with its date, never overwritten; 04 Alert, an email when a key product is cut below our price; 05 Report, Power BI pages of price gaps and changes.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#16233B"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif; }
+    .title { font-size: 21px; font-weight: 700; fill: #FFFFFF; }
+    .sub { font-size: 13.5px; fill: #CBD5E1; }
+    .num { font-size: 13px; font-weight: 700; fill: #0B1220; }
+    .step { font-size: 16px; font-weight: 700; fill: #FFFFFF; }
+    .desc { font-size: 12.5px; fill: #94A3B8; }
+    .box { fill: #FFFFFF; fill-opacity: 0.04; stroke: #334155; }
+    .link { fill: none; stroke: #F59E0B; stroke-width: 2; stroke-dasharray: 4 6; animation: flow 1.6s linear infinite; }
+    @keyframes flow { to { stroke-dashoffset: -20; } }
+  </style>
+
+  <rect width="1000" height="290" rx="22" fill="url(#bg)"/>
+  <text x="40" y="52" class="title">How it works</text>
+  <text x="40" y="76" class="sub">One Airflow run a week. Every step is a function in tracker.py and a task in the DAG.</text>
+
+  <path class="link" d="M210 175h18"/>
+  <path class="link" d="M402 175h18"/>
+  <path class="link" d="M594 175h18"/>
+  <path class="link" d="M786 175h18"/>
+
+  <rect x="40" y="105" width="170" height="140" rx="14" class="box"/>
+  <circle cx="70" cy="135" r="15" fill="#F59E0B"/>
+  <text x="70" y="140" class="num" text-anchor="middle">01</text>
+  <text x="94" y="141" class="step">Collect</text>
+  <text x="56" y="178" class="desc">Competitor prices,</text>
+  <text x="56" y="197" class="desc">every week, inside</text>
+  <text x="56" y="216" class="desc">each source's limits</text>
+
+  <rect x="232" y="105" width="170" height="140" rx="14" class="box"/>
+  <circle cx="262" cy="135" r="15" fill="#F59E0B"/>
+  <text x="262" y="140" class="num" text-anchor="middle">02</text>
+  <text x="286" y="141" class="step">Match</text>
+  <text x="248" y="178" class="desc">Each listing paired</text>
+  <text x="248" y="197" class="desc">with our product, by</text>
+  <text x="248" y="216" class="desc">barcode or by name</text>
+
+  <rect x="424" y="105" width="170" height="140" rx="14" class="box"/>
+  <circle cx="454" cy="135" r="15" fill="#F59E0B"/>
+  <text x="454" y="140" class="num" text-anchor="middle">03</text>
+  <text x="478" y="141" class="step">Store</text>
+  <text x="440" y="178" class="desc">Every price kept</text>
+  <text x="440" y="197" class="desc">with its date, never</text>
+  <text x="440" y="216" class="desc">overwritten</text>
+
+  <rect x="616" y="105" width="170" height="140" rx="14" class="box"/>
+  <circle cx="646" cy="135" r="15" fill="#F59E0B"/>
+  <text x="646" y="140" class="num" text-anchor="middle">04</text>
+  <text x="670" y="141" class="step">Alert</text>
+  <text x="632" y="178" class="desc">An email when a key</text>
+  <text x="632" y="197" class="desc">product is cut below</text>
+  <text x="632" y="216" class="desc">our price</text>
+
+  <rect x="808" y="105" width="152" height="140" rx="14" class="box"/>
+  <circle cx="838" cy="135" r="15" fill="#F59E0B"/>
+  <text x="838" y="140" class="num" text-anchor="middle">05</text>
+  <text x="862" y="141" class="step">Report</text>
+  <text x="824" y="178" class="desc">Power BI: price</text>
+  <text x="824" y="197" class="desc">gaps and changes</text>
+  <text x="824" y="216" class="desc">by product</text>
+</svg>
