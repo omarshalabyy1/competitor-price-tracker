@@ -96,7 +96,9 @@ docker compose up -d --build  # Airflow http://127.0.0.1:8090, warehouse localho
 
 Open Airflow, unpause `competitor_prices`, and it catches up one week at a time from
 September 2025 (about half an hour), then runs every Sunday. Only the latest week reads the web
-shops and sends the email: their pages show today's prices only.
+shops and sends the email: their pages show today's prices only. To re-run a step for one week,
+open that run in Airflow and press **Clear** on the task (on Airflow 3.3 the `airflow tasks
+clear` command did nothing here; the UI and the REST API work).
 
 Then the numbers and the tests:
 

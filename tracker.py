@@ -229,21 +229,22 @@ def match():
     """Grocery listings match on barcode. Web shop listings match on product names, redone every
     run so a new listing can take a product from a weaker match."""
     with connect() as conn:
-        matched = conn.execute(
+        by_barcode = conn.execute(
             "UPDATE listing l SET sku = p.sku, match_score = 1 FROM product p "
             "WHERE l.sku IS NULL AND p.barcode = l.listing_key"
         ).rowcount
+        print(f"Grocery: {by_barcode} new listings matched by barcode")
         names = dict(conn.execute("SELECT sku, name FROM product WHERE barcode IS NULL").fetchall())
         for (store_id,) in conn.execute("SELECT store_id FROM store WHERE source = 'web shop pages'").fetchall():
             titles = dict(conn.execute("SELECT listing_key, title FROM listing WHERE store_id = %s", (store_id,)).fetchall())
             conn.execute("UPDATE listing SET sku = NULL, match_score = NULL WHERE store_id = %s", (store_id,))
-            for score, key, sku in match_names(titles, names):
+            pairs = match_names(titles, names)
+            for score, key, sku in pairs:
                 conn.execute(
                     "UPDATE listing SET sku = %s, match_score = %s WHERE store_id = %s AND listing_key = %s",
                     (sku, round(score, 3), store_id, key),
                 )
-                matched += 1
-        print(f"{matched} listings matched to our products")
+            print(f"{store_id}: {len(pairs)} of {len(titles)} listings matched by name")
 
 
 # --- Step 4: alert ---------------------------------------------------------------------------------
