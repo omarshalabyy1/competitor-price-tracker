@@ -1,64 +1,83 @@
-// 3. Measures. In the Measures table: Table tools -> New measure -> paste one measure at a time,
-// then set its Format and Display folder (Measure tools) as written in its comment.
+// 3. Measures
+//
+// First create the measures table: Home > Enter data, name the table _Measures, keep the
+// one empty column, Load. Then for each measure below: select _Measures, Home > New measure,
+// paste the measure (from its name to the end of its expression), press Enter, and set
+// the format string and display folder in the Measure tools ribbon and the Properties pane.
+// When all measures exist, hide the empty column; _Measures moves to the top of the field list.
+//
+// Each measure's comment says what it returns, its format string and its display folder.
+// Visuals use these measures only: no implicit sums dragged from columns. 13 measures.
 
-// ---------- Page 1: Price gaps (display folder "Gaps") ----------
 
-// Our products with at least one competitor price. Format: Whole number #,0
+// ---------- Page 1: Price gaps (display folder: Gaps) ----------
+
+// Our products with at least one competitor price. Format: #,0  Folder: Gaps
 Products Tracked =
 DISTINCTCOUNT ( 'Price Gap'[sku] )
 
-// Competitor stores selling at least one of our products. Format: Whole number #,0
+// Competitor stores selling at least one of our products. Format: #,0  Folder: Gaps
 Stores Tracked =
 DISTINCTCOUNT ( 'Price Gap'[store_id] )
 
-// Competitor listings matched to our products. Format: Whole number #,0
+// Competitor listings matched to our products. Format: #,0  Folder: Gaps
 Listings Compared =
 COUNTROWS ( 'Price Gap' )
 
-// Listings whose latest price is below ours. Format: Whole number #,0
+// Listings whose latest price is below ours. Format: #,0  Folder: Gaps
 Cheaper Than Us =
 CALCULATE ( [Listings Compared], 'Price Gap'[gap_pct] < 0 )
 
-// Share of listings priced below ours. Format: Percentage 0.0%
+// Share of listings priced below ours. Format: 0.0%  Folder: Gaps
 Share Cheaper Than Us =
-DIVIDE ( [Cheaper Than Us], [Listings Compared] )
-
-// Average gap of competitor prices against ours; below zero = competitors cheaper. Format: Percentage 0.0%
-Average Gap =
-VAR GapInPercent = AVERAGE ( 'Price Gap'[gap_pct] )
+VAR _Cheaper = [Cheaper Than Us]
+VAR _Listings = [Listings Compared]
 RETURN
-    DIVIDE ( GapInPercent, 100 )
+    DIVIDE ( _Cheaper, _Listings )
 
-// ---------- Page 2: Price changes (display folder "Changes") ----------
+// Average gap of competitor prices against ours; below zero means competitors are cheaper.
+// gap_pct is stored in percent (-4.5), so it is divided by 100 for the % format. Format: 0.0%  Folder: Gaps
+Average Gap =
+VAR _GapInPercent = AVERAGE ( 'Price Gap'[gap_pct] )
+RETURN
+    DIVIDE ( _GapInPercent, 100 )
 
-// Every price change on our products. Format: Whole number #,0
+
+// ---------- Page 2: Price changes (display folder: Changes) ----------
+
+// Every price change on our products. Format: #,0  Folder: Changes
 Price Changes =
 COUNTROWS ( 'Price Change' )
 
-// Changes that lowered the price. Format: Whole number #,0
+// Changes that lowered the price. Format: #,0  Folder: Changes
 Price Cuts =
 CALCULATE ( [Price Changes], 'Price Change'[Direction] = "Cut" )
 
-// Changes that raised the price. Format: Whole number #,0
+// Changes that raised the price. Format: #,0  Folder: Changes
 Price Rises =
 CALCULATE ( [Price Changes], 'Price Change'[Direction] = "Rise" )
 
-// Cuts that took a key product below our price: what the alert email reports. Format: Whole number #,0
+// Cuts that took a key product below our price: what the alert email reports. Format: #,0  Folder: Changes
 Undercuts =
 CALCULATE ( [Price Changes], 'Price Change'[is_undercut] = TRUE () )
 
-// Average size of a change. Format: Percentage 0.0%
+// Average size of a change, in percent of the old price. Format: 0.0%  Folder: Changes
 Average Change =
-VAR ChangeInPercent = AVERAGE ( 'Price Change'[change_pct] )
+VAR _ChangeInPercent = AVERAGE ( 'Price Change'[change_pct] )
 RETURN
-    DIVIDE ( ChangeInPercent, 100 )
+    DIVIDE ( _ChangeInPercent, 100 )
 
-// ---------- Page 2: price history chart (display folder "History") ----------
 
-// A competitor's price on a day (one price per listing per day, so the average is that price). Format: 0.00
+// ---------- Page 2: price history chart (display folder: History) ----------
+
+// A competitor's price on a day, shown only when one product is picked: averaging the prices of
+// different products would mean nothing. One price per listing per day, so the average is that
+// price. Format: 0.00  Folder: History
 Competitor Price =
-AVERAGE ( 'Daily Price'[price] )
+VAR _OneProduct = HASONEVALUE ( Product[sku] )
+RETURN
+    IF ( _OneProduct, AVERAGE ( 'Daily Price'[price] ) )
 
-// Our price for the one product selected; blank when several are selected. Format: 0.00
+// Our price for the one product picked; blank when several are in the filter. Format: 0.00  Folder: History
 Our Price =
 SELECTEDVALUE ( Product[our_price] )

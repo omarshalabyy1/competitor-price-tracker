@@ -1,35 +1,31 @@
 {
   "name": "Competitor price tracker",
-  "dataColors": ["#F59E0B", "#0F172A", "#64748B", "#94A3B8", "#CBD5E1", "#B45309", "#334155", "#E2E8F0"],
-  "foreground": "#0F172A",
-  "foregroundNeutralSecondary": "#64748B",
+  "dataColors": ["#2563EB", "#0E1630", "#8DB0FF", "#4A5675", "#1D4FD7", "#C7D7FE"],
   "background": "#FFFFFF",
-  "backgroundLight": "#F8FAFC",
-  "backgroundNeutral": "#E2E8F0",
-  "tableAccent": "#F59E0B",
-  "good": "#0F766E",
-  "neutral": "#94A3B8",
-  "bad": "#DC2626",
-  "maximum": "#0F766E",
-  "center": "#FFFFFF",
-  "minimum": "#DC2626",
+  "foreground": "#0E1630",
+  "tableAccent": "#2563EB",
+  "good": "#2563EB",
+  "neutral": "#4A5675",
+  "bad": "#C2410C",
+  "maximum": "#2563EB",
+  "center": "#8DB0FF",
+  "minimum": "#FFFFFF",
   "textClasses": {
-    "callout": { "fontSize": 28, "fontFace": "Segoe UI Semibold", "color": "#0F172A" },
-    "title": { "fontSize": 12, "fontFace": "Segoe UI Semibold", "color": "#0F172A" },
-    "header": { "fontSize": 11, "fontFace": "Segoe UI Semibold", "color": "#0F172A" },
-    "label": { "fontSize": 10, "fontFace": "Segoe UI", "color": "#334155" }
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 28, "color": "#0E1630" },
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 13, "color": "#0E1630" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#0E1630" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#4A5675" }
   },
   "visualStyles": {
     "*": {
       "*": {
-        "background": [{ "show": true, "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
-        "border": [{ "show": true, "color": { "solid": { "color": "#E2E8F0" } }, "radius": 8 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#E2E7F1" } }, "radius": 8 }],
         "dropShadow": [{ "show": false }]
       }
     },
     "page": {
       "*": {
-        "background": [{ "color": { "solid": { "color": "#F1F5F9" } }, "transparency": 0 }]
+        "background": [{ "color": { "solid": { "color": "#F4F6FB" } }, "transparency": 0 }]
       }
     }
   }

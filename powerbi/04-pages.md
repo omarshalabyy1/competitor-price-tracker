@@ -1,83 +1,78 @@
-# 4. Pages
+# 4. Pages and visuals
 
-Canvas: 16:9 (1280 × 720), the default. Apply the theme first: View → Themes → Browse for
-themes → [05-theme.json](05-theme.json). Positions are x, y, width, height in pixels (Format →
-General → Properties). Every visual title is on and written as below.
+Canvas: 16:9, 1280 × 720 (the default). Set each visual's position and size in **Format > General >
+Properties**. `x, y, w, h` are in pixels from the top-left corner. Apply the theme (`05-theme.json`)
+first so colours and fonts are already right. Colours are named by theme slot: Theme colour 1 is the
+blue, 2 the navy, 4 the slate grey, 6 the pale blue.
 
-## Page 1 · Price gaps
+Rename the pages (double-click the tab) to **Price gaps** and **Price changes**.
 
-Answers: where do we stand against each competitor right now, product by product?
+Number formats come from each measure's format string (`03-measures.dax`), so no visual needs its own
+format. On every card set **Format > Visual > Callout value > Display units: None**, so the card
+shows the full number as in `06-checks.md`. Visuals are listed in build order; the `#` is used in
+`07-interactions.md`.
 
-| # | Visual | Position | Fields | Settings |
+## Page 1: Price gaps
+
+Where we stand against each competitor right now, product by product.
+
+| # | Visual | x, y, w, h | Fields | Settings |
 |---|---|---|---|---|
-| 1 | Text box | 20, 12, 900, 44 | "Where we stand against competitors" | Segoe UI Semibold 20 |
-| 2 | Slicer (dropdown) | 20, 64, 230, 60 | Product[Category] | Multi-select with Ctrl; title "Category" |
-| 3 | Slicer (tile) | 260, 64, 300, 60 | Store[Store kind] | Single select off; title "Store kind" |
-| 4 | Slicer (tile) | 570, 64, 220, 60 | Product[Key product] | Title "Products" |
-| 5 | Slicer (dropdown) | 800, 64, 230, 60 | Store[Store] | Title "Store" |
-| 6 | Card | 20, 136, 240, 100 | [Products Tracked] | Category label "Products tracked" |
-| 7 | Card | 270, 136, 240, 100 | [Stores Tracked] | Category label "Competitor stores" |
-| 8 | Card | 520, 136, 240, 100 | [Listings Compared] | Category label "Listings compared" |
-| 9 | Card | 770, 136, 240, 100 | [Share Cheaper Than Us] | Category label "Cheaper than us" |
-| 10 | Card | 1020, 136, 240, 100 | [Average Gap] | Category label "Average gap (below 0 = they are cheaper)" |
-| 11 | Matrix | 20, 248, 820, 460 | Rows Product[Product]; Columns Store[Store]; Values [Average Gap] | See below |
-| 12 | Clustered bar chart | 850, 248, 410, 460 | Y axis Store[Store]; X axis [Share Cheaper Than Us] | See below |
+| 1 | Text box | 24, 16, 600, 52 | "Where we stand against competitors" | Font 20, bold |
+| 2 | Slicer | 640, 12, 148, 56 | Field: `Product[category]` | Slicer settings > Style: Dropdown. Selection: multi-select with Ctrl, "Select all" on. Header text "Category" |
+| 3 | Slicer | 796, 12, 148, 56 | Field: `Store[kind]` | Style: Dropdown. Multi-select with Ctrl. Header text "Store kind" |
+| 4 | Slicer | 952, 12, 148, 56 | Field: `Product[Key product]` | Style: Tile. Multi-select with Ctrl. Header text "Products" |
+| 5 | Slicer | 1108, 12, 148, 56 | Field: `Store[name]` | Style: Dropdown. Multi-select with Ctrl, "Select all" on. Header text "Store" |
+| 6 | Card | 24, 84, 240, 96 | `[Products Tracked]` | Category label on, renamed on the visual to "Products tracked" |
+| 7 | Card | 272, 84, 240, 96 | `[Stores Tracked]` | Category label "Competitor stores" |
+| 8 | Card | 520, 84, 240, 96 | `[Listings Compared]` | Category label "Listings compared" |
+| 9 | Card | 768, 84, 240, 96 | `[Share Cheaper Than Us]` | Category label "Cheaper than us" |
+| 10 | Card | 1016, 84, 240, 96 | `[Average Gap]` | Category label "Average gap (below 0: they are cheaper)" |
+| 11 | Matrix | 24, 196, 820, 508 | Rows: `Product[name]`; Columns: `Store[name]`; Values: `[Average Gap]` | Title "Gap against our price, by product and store". Row and column subtotals off. Sort by `name`, ascending. Conditional formatting > Background color on `Average Gap`: Format style Gradient, tick "Add a middle color"; Minimum: Number -0.2, Theme colour 1; Middle: Number 0, White; Maximum: Number 0.2, Theme colour 4 |
+| 12 | Clustered bar chart | 860, 196, 396, 508 | Y-axis: `Store[name]`; X-axis: `[Share Cheaper Than Us]`; Tooltips: `[Listings Compared]`, `[Average Gap]` | Title "Share of listings cheaper than us". Sort by Share Cheaper Than Us, descending. Data labels on. Bars Theme colour 1 |
 
-**Matrix (11):** title "Gap against our price, by product and store". Values formatted 0.0%.
-Cell elements → Background color → fx → Format style *Gradient*, based on [Average Gap]:
-minimum number -0.2 colour `#DC2626`, center number 0 colour `#FFFFFF`, maximum number 0.2
-colour `#0F766E`. Red means a competitor is cheaper than us. Row subtotals off, column
-subtotals off. Sort by Product ascending.
+In the matrix, blue cells are where a competitor is cheaper than us, the darker the cheaper; grey
+cells are where it is dearer. Most cells are empty: each store sells only some of our products.
 
-**Bar chart (12):** title "Share of listings cheaper than us". Sort by [Share Cheaper Than
-Us] descending. Data labels on, 0%. Bars colour `#F59E0B`.
+## Page 2: Price changes
 
-Interactions: default (every visual filters the others).
+What competitors changed, which weekly run caught it, and which changes were undercuts.
 
-## Page 2 · Price changes
-
-Answers: what did competitors change, when did the weekly run catch it, and which changes were
-undercuts on key products?
-
-| # | Visual | Position | Fields | Settings |
+| # | Visual | x, y, w, h | Fields | Settings |
 |---|---|---|---|---|
-| 1 | Text box | 20, 12, 900, 44 | "What competitors changed, week by week" | Segoe UI Semibold 20 |
-| 2 | Slicer (dropdown) | 20, 64, 230, 60 | Product[Category] | Title "Category" |
-| 3 | Slicer (dropdown) | 260, 64, 230, 60 | Store[Store] | Title "Store" |
-| 4 | Slicer (tile) | 500, 64, 220, 60 | Product[Key product] | Title "Products" |
-| 5 | Slicer (dropdown) | 730, 64, 530, 60 | Product[Product] | Single select **on**, search on; title "Product (for the price history)" |
-| 6 | Card | 20, 136, 240, 100 | [Price Changes] | Category label "Price changes" |
-| 7 | Card | 270, 136, 240, 100 | [Price Cuts] | Category label "Cuts" |
-| 8 | Card | 520, 136, 240, 100 | [Price Rises] | Category label "Rises" |
-| 9 | Card | 770, 136, 240, 100 | [Undercuts] | Category label "Undercuts on key products"; callout colour `#DC2626` |
-| 10 | Card | 1020, 136, 240, 100 | [Average Change] | Category label "Average change" |
-| 11 | Stacked column chart | 20, 248, 620, 230 | X axis Price Change[caught_week]; Y axis [Price Cuts], [Price Rises] | See below |
-| 12 | Line chart | 650, 248, 610, 230 | X axis Date[Date]; Y axis [Competitor Price]; Legend Store[Store] | See below |
-| 13 | Table | 20, 488, 1240, 220 | Product[Product], Store[Store], Price Change[observed_on], [old_price], [new_price], [change_pct], [is_discounted], [is_undercut] | See below |
+| 1 | Text box | 24, 16, 600, 52 | "What competitors changed, week by week" | Font 20, bold |
+| 2 | Slicer | 640, 12, 148, 56 | Field: `Product[category]` | Same as page 1 #2 (it is synced, see below) |
+| 3 | Slicer | 796, 12, 148, 56 | Field: `Store[name]` | Same as page 1 #5 (synced) |
+| 4 | Slicer | 952, 12, 148, 56 | Field: `Product[Key product]` | Same as page 1 #4 (synced) |
+| 5 | Slicer | 1108, 12, 148, 56 | Field: `Product[name]` | Style: Dropdown. Selection: **Single select** on. Search on (slicer menu `...` > Search). Header text "Product (history)" |
+| 6 | Card | 24, 84, 240, 96 | `[Price Changes]` | Category label "Price changes" |
+| 7 | Card | 272, 84, 240, 96 | `[Price Cuts]` | Category label "Cuts" |
+| 8 | Card | 520, 84, 240, 96 | `[Price Rises]` | Category label "Rises" |
+| 9 | Card | 768, 84, 240, 96 | `[Undercuts]` | Category label "Undercuts on key products"; callout value colour Theme colour 1 |
+| 10 | Card | 1016, 84, 240, 96 | `[Average Change]` | Category label "Average change" |
+| 11 | Stacked column chart | 24, 196, 620, 250 | X-axis: `Price Change[caught_week]`; Y-axis: `[Price Cuts]`, `[Price Rises]` | Title "Changes caught by each weekly run". X-axis type: Categorical, sorted by `caught_week` ascending. Colours: Price Cuts Theme colour 1, Price Rises Theme colour 4. Legend: top. Data labels off |
+| 12 | Line chart | 660, 196, 596, 250 | X-axis: `Date[Date]`; Y-axis: `[Competitor Price]`; Legend: `Store[name]` | Title "Price history of the picked product". X-axis type: Continuous. Markers on. Analytics pane > Y-axis constant line > Add > Value: fx > Field value `[Our Price]`; line colour Theme colour 2, style Dashed; Data label on, Text "Name", Name "Our price" |
+| 13 | Table | 24, 462, 1232, 242 | `Product[sku]`, `Product[name]`, `Store[name]`, `Price Change[observed_on]`, `Price Change[old_price]`, `Price Change[new_price]`, `Price Change[change_pct]`, `Price Change[is_discounted]`, `Price Change[is_undercut]` | Title "Every change". In the field well, set `old_price`, `new_price` and `change_pct` to **Don't summarize** (arrow next to the field). Rename on the visual: sku "SKU", name "Product", name "Store", observed_on "Date", old_price "Was", new_price "Now", change_pct "Change %", is_discounted "On promotion", is_undercut "Undercut". Sort by Date, descending. Conditional formatting > Font color on Change %: Format style Rules; If value < 0 then Theme colour 1; If value > 0 then Theme colour 4. Totals off |
 
-**Column chart (11):** title "Changes caught by each weekly run". X axis type *Categorical*,
-format d mmm yyyy. Colours: Price Cuts `#F59E0B`, Price Rises `#64748B`. Legend top.
+The line chart stays empty until a product is picked in slicer #5 (`Competitor Price` returns blank
+for more than one product). `SKU` is in the table so two products with the same name, at the same
+store on the same day, stay two rows.
 
-**Line chart (12):** title "Price history of the selected product". Analytics pane → Y-axis
-constant line → Add → Value fx → field value [Our Price]; colour `#0F172A`, style dashed, data
-label on with text "Our price". Markers on. It shows a price line per store for the one product
-picked in slicer 5.
+## Sync the slicers
 
-**Table (13):** rename the columns in the visual: observed_on "Date", old_price "Was",
-new_price "Now", change_pct "Change %", is_discounted "On promotion", is_undercut "Undercut".
-Sort by Date descending. Cell elements → Font color fx on Change %: rules, if value < 0 then
-`#DC2626`, if value > 0 then `#0F766E`. Cell elements → Background color fx on Undercut: rule,
-if value is True then `#FEF3C7`.
+**View > Sync slicers**. For each slicer, tick **Sync** and **Visible** on the pages below:
 
-Interactions (Format → Edit interactions): select the column chart (11) and set the line chart
-(12) to **None**, so clicking a week filters the table but not the price history.
+| Slicer | Price gaps | Price changes | Why |
+|---|---|---|---|
+| Category (`Product[category]`) | yes | yes | One choice of products for both pages |
+| Products (`Product[Key product]`) | yes | yes | Key products on both pages |
+| Store (`Store[name]`) | yes | yes | One store on both pages |
+| Store kind (`Store[kind]`) | yes | no | Page 1 only: the Store slicer already narrows page 2 |
+| Product (`Product[name]`) | no | yes | Page 2 only: it drives the price history |
 
-## Slicer sync, drill-through, bookmarks
+## Not used
 
-- View → Sync slicers: Product[Category] and Product[Key product] synced and visible on both
-  pages. Store[Store] synced on both pages. Product[Product] is on page 2 only.
-- No drill-through pages and no bookmarks: two pages answer the two questions.
-
-When both pages are built, check every number against [06-checks.md](06-checks.md), then save
-a screenshot of each page into [screenshots/](screenshots/) as `price-gaps.png` and
-`price-changes.png`.
+No drill-through, bookmarks, buttons or tooltip pages, and no filters in the Filters pane (visual,
+page or report level). "Our products only" is applied in Power Query (`Daily Price`), where a filter
+cannot be cleared by accident. Two pages, five slicers and the interactions in `07-interactions.md`
+answer both questions.
