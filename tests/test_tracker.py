@@ -3,6 +3,8 @@
 from decimal import Decimal
 from pathlib import Path
 
+import requests
+
 import parsers
 import tracker
 
@@ -58,3 +60,18 @@ def test_each_product_matches_one_listing_per_shop():
               "home": 'Lenovo V110, 15.6", 4GB, 128GB SSD, Windows 10 Home'}
     names = {"OURS-1": "Lenovo V110 15.6 inch 4GB 128GB SSD Windows 10 Home"}
     assert [(key, sku) for _, key, sku in tracker.match_names(titles, names, THRESHOLD)] == [("home", "OURS-1")]
+
+
+def reply(status, headers=None):
+    response = requests.Response()
+    response.status_code, response.url = status, "https://shop.example/page"
+    response.headers.update(headers or {})
+    return response
+
+
+def test_waits_out_a_rate_limit(monkeypatch):
+    replies = [reply(429, {"Retry-After": "0"}), reply(503), reply(200)]
+    monkeypatch.setattr(tracker.http, "get", lambda url, **kwargs: replies.pop(0))
+    monkeypatch.setattr(tracker.time, "sleep", lambda seconds: None)
+    assert tracker.get("https://shop.example/page").status_code == 200
+    assert replies == []

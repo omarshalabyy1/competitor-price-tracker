@@ -28,9 +28,9 @@ A pipeline that runs once a week on its own and keeps every competitor price it 
   <img width="100%" src="docs/how-it-works.svg" alt="How it works: 01 Collect, competitor prices every week, from product pages and a shelf-price feed; 02 Match, each listing paired with our product by barcode or by name; 03 Store, every price kept with its date, never overwritten; 04 Alert, an email when a key product is cut below our price; 05 Report, Power BI price gaps and changes by product.">
 </p>
 
-1. **Collect.** It reads the competitors' product pages one listing page at a time, never
-   faster than one page every two seconds, plus the shelf prices published for the grocery stores
-   that week.
+1. **Collect.** It reads the competitors' product pages one listing page after another, as fast
+   as each site answers (when a site says "too many requests", it waits as long as the site asks
+   and carries on), plus the shelf prices published for the grocery stores that week.
 2. **Match.** Each competitor listing is paired with our product: by barcode where there is
    one, by name where there is not. Names are compared on the words that identify a product
    (subtitles, series and filler words dropped), one listing per product per store, the closest
@@ -129,7 +129,7 @@ pip install -r requirements.txt pytest && pytest
 
 - **Grocery prices:** [Open Prices](https://prices.openfoodfacts.org) by Open Food Facts, shelf
   prices that shoppers publish, for nine stores in Mountain View, California. Read through its
-  public API, one request a second. The data is under the
+  public API, as fast as it answers. The data is under the
   [Open Database License](https://opendatacommons.org/licenses/odbl/1.0/), © Open Prices
   contributors.
 - **Web shop pages:** [Books to Scrape](https://books.toscrape.com) and the

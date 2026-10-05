@@ -28,6 +28,20 @@ http = requests.Session()
 http.headers["User-Agent"] = USER_AGENT
 
 
+def get(url, **params):
+    """GET as fast as the source allows: no pause between requests. When it answers "too many
+    requests" (429) or "busy" (503), wait the seconds its Retry-After asks (else 1, 2, 4 ...)
+    and try again; after 8 tries the error stops the task, and Airflow retries it later."""
+    for attempt in range(8):
+        response = http.get(url, params=params or None, timeout=60)
+        if response.status_code not in (429, 503):
+            break
+        wait = response.headers.get("Retry-After", "")
+        time.sleep(int(wait) if wait.isdigit() else 2 ** attempt)
+    response.raise_for_status()
+    return response
+
+
 def connect(cfg):
     w = cfg["warehouse"]
     return psycopg.connect(host=w["host"], port=w["port"], dbname=w["database"], user=w["user"], password=w["password"])
@@ -88,23 +102,21 @@ def fetch_open_prices(location_ids, start, end):
     """Every product price published on Open Prices for these stores in [start, end)."""
     prices, page = [], 1
     while True:
-        response = http.get(OPEN_PRICES_API, timeout=60, params={
-            "location_id__in": ",".join(location_ids),
-            "created__gte": start.isoformat(),
-            "created__lte": end.isoformat(),
-            "product_code__isnull": "false",
-            "duplicate_of__isnull": "true",
-            "order_by": "created",
-            "size": 100,
-            "page": page,
-        })
-        response.raise_for_status()
-        body = response.json()
+        body = get(
+            OPEN_PRICES_API,
+            location_id__in=",".join(location_ids),
+            created__gte=start.isoformat(),
+            created__lte=end.isoformat(),
+            product_code__isnull="false",
+            duplicate_of__isnull="true",
+            order_by="created",
+            size=100,
+            page=page,
+        ).json()
         prices += [p for p in body["items"] if parse_time(p["created"]) < end]
         if page >= body["pages"]:
             return prices
         page += 1
-        time.sleep(1)  # one request a second keeps us well inside the API's limits
 
 
 def collect_open_prices(start, end, run_week):
@@ -135,14 +147,13 @@ def parse_time(text):
 # --- Step 2b: web shops, read page by page -----------------------------------------------------
 
 def crawl(url, parse):
-    """Follow a shop's listing pages from the first one. robots.txt is not read: the pace is the brake."""
+    """Follow a shop's listing pages from the first one, as fast as the shop answers (see get()).
+    robots.txt is not read."""
     products = []
     while url:
-        response = http.get(url, timeout=60)
-        response.raise_for_status()
+        response = get(url)
         page, url = parse(response.content, response.url)
         products += page
-        time.sleep(2)  # never faster than one page every 2 seconds
     return products
 
 
