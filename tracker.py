@@ -10,6 +10,7 @@ import os
 import re
 import smtplib
 import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from email.message import EmailMessage
 
@@ -23,6 +24,7 @@ from parsers import PARSERS
 USER_AGENT = "competitor-price-tracker (+https://github.com/omarshalabyy1/competitor-price-tracker)"
 OPEN_PRICES_API = "https://prices.openfoodfacts.org/api/v1/prices"
 CATALOGUE_COLUMNS = ["sku", "name", "category", "barcode", "our_price", "currency", "is_key"]
+PARALLEL_PAGES = 8  # listing pages fetched at once per shop; get() still waits out any rate limit
 
 http = requests.Session()
 http.headers["User-Agent"] = USER_AGENT
@@ -144,16 +146,16 @@ def parse_time(text):
     return datetime.fromisoformat(text.replace("Z", "+00:00"))
 
 
-# --- Step 2b: web shops, read page by page -----------------------------------------------------
+# --- Step 2b: web shops, all listing pages ----------------------------------------------------
 
 def crawl(url, parse):
-    """Follow a shop's listing pages from the first one, as fast as the shop answers (see get()).
-    robots.txt is not read."""
-    products = []
-    while url:
-        response = get(url)
-        page, url = parse(response.content, response.url)
-        products += page
+    """Read a shop's first listing page, then every later page its pager lists, PARALLEL_PAGES at
+    a time, each as fast as the shop answers (see get()). robots.txt is not read."""
+    first = get(url)
+    products, later_pages = parse(first.content, first.url)
+    with ThreadPoolExecutor(max_workers=PARALLEL_PAGES) as pool:
+        for page_products, _ in pool.map(lambda page: parse(get(page).content, page), later_pages):
+            products += page_products
     return products
 
 

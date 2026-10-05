@@ -14,7 +14,7 @@ THRESHOLD = 0.6  # the demo's rules.match_threshold; the tests never read a clie
 
 def test_books_page():
     url = "https://books.toscrape.com/catalogue/page-1.html"
-    products, next_page = parsers.books_toscrape((PAGES / "books-page-1.html").read_bytes(), url)
+    products, later_pages = parsers.books_toscrape((PAGES / "books-page-1.html").read_bytes(), url)
     assert len(products) == 20
     assert products[0] == {
         "listing_key": "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html",
@@ -22,22 +22,26 @@ def test_books_page():
         "price": Decimal("51.77"),
         "currency": "GBP",
     }
-    assert next_page == "https://books.toscrape.com/catalogue/page-2.html"
+    assert len(later_pages) == 49  # "Page 1 of 50"
+    assert later_pages[0] == "https://books.toscrape.com/catalogue/page-2.html"
+    assert later_pages[-1] == "https://books.toscrape.com/catalogue/page-50.html"
 
 
 def test_webscraper_page():
     url = "https://webscraper.io/test-sites/e-commerce/static/computers/laptops"
-    products, next_page = parsers.webscraper_io((PAGES / "webscraper-laptops-page-1.html").read_bytes(), url)
+    products, later_pages = parsers.webscraper_io((PAGES / "webscraper-laptops-page-1.html").read_bytes(), url)
     assert len(products) == 6
     assert products[0]["title"] == 'Packard 255 G2 15.6", AMD E2-3800 1.3GHz, 4GB, 500GB, Windows 8.1'
     assert products[0]["price"] == Decimal("416.99")
     assert products[0]["listing_key"] == "https://webscraper.io/test-sites/e-commerce/static/product/31"
-    assert next_page == "https://webscraper.io/test-sites/e-commerce/static/computers/laptops?page=2"
+    assert len(later_pages) == 19  # the pager runs to page 20
+    assert later_pages[0] == "https://webscraper.io/test-sites/e-commerce/static/computers/laptops?page=2"
+    assert later_pages[-1] == "https://webscraper.io/test-sites/e-commerce/static/computers/laptops?page=20"
 
 
-def test_last_page_has_no_next():
-    html = (PAGES / "books-page-1.html").read_text(encoding="utf-8").replace('<li class="next">', "<li>")
-    assert parsers.books_toscrape(html, "https://books.toscrape.com/catalogue/page-50.html")[1] is None
+def test_last_page_has_no_later_pages():
+    html = (PAGES / "books-page-1.html").read_text(encoding="utf-8").replace("Page 1 of 50", "Page 50 of 50")
+    assert parsers.books_toscrape(html, "https://books.toscrape.com/catalogue/page-50.html")[1] == []
 
 
 def test_same_product_named_differently_matches():

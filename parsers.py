@@ -1,7 +1,9 @@
-"""One function per competitor web shop: read one listing page, return (products, next page URL).
+"""One function per competitor web shop: read one listing page, return (products, later pages).
 
-A product is {listing_key, title, price, currency}. A new competitor site needs a function here and
-an entry in PARSERS; config/client.yaml then names it under `competitors` with its first pages.
+A product is {listing_key, title, price, currency}. The later pages are the addresses of the listing
+pages after this one, read from the page's pager, so the crawler can fetch them all at once. A new
+competitor site needs a function here and an entry in PARSERS; config/client.yaml then names it
+under `competitors` with its first pages.
 """
 
 import re
@@ -16,7 +18,7 @@ def price_of(text):
 
 
 def books_toscrape(html, url):
-    """books.toscrape.com (prices in GBP)."""
+    """books.toscrape.com (prices in GBP). Its pager says "Page 1 of 50"; pages are page-N.html."""
     soup = BeautifulSoup(html, "html.parser")
     products = [{
         "listing_key": urljoin(url, card.h3.a["href"]),
@@ -24,12 +26,13 @@ def books_toscrape(html, url):
         "price": price_of(card.select_one(".price_color").text),
         "currency": "GBP",
     } for card in soup.select("article.product_pod")]
-    next_link = soup.select_one("li.next a")
-    return products, next_link and urljoin(url, next_link["href"])
+    pager = re.search(r"Page (\d+) of (\d+)", soup.get_text())
+    current, last = (int(pager[1]), int(pager[2])) if pager else (1, 1)
+    return products, [urljoin(url, f"page-{n}.html") for n in range(current + 1, last + 1)]
 
 
 def webscraper_io(html, url):
-    """The webscraper.io test shop (prices in USD)."""
+    """The webscraper.io test shop (prices in USD). Its pager links to ?page=N up to the last page."""
     soup = BeautifulSoup(html, "html.parser")
     products = []
     for card in soup.select("div.thumbnail"):
@@ -40,8 +43,9 @@ def webscraper_io(html, url):
             "price": price_of(card.select_one("[itemprop=price]").text),
             "currency": "USD",
         })
-    next_link = soup.select_one("a[rel=next]")
-    return products, next_link and urljoin(url, next_link["href"])
+    numbers = [int(n) for a in soup.select("a.page-link[href]") for n in re.findall(r"[?&]page=(\d+)", a["href"])]
+    current = int((re.findall(r"[?&]page=(\d+)", url) or ["1"])[0])
+    return products, [urljoin(url, f"?page={n}") for n in range(current + 1, max(numbers, default=1) + 1)]
 
 
 PARSERS = {"books_toscrape": books_toscrape, "webscraper_io": webscraper_io}

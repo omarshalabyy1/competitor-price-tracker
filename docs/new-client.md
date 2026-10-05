@@ -14,7 +14,7 @@ What the client gets with no work. Hours are an estimate of building each part f
 |---|---|
 | Weekly Airflow pipeline in Docker: the warehouse, one run per week, the catch-up from a start week, the web shops read on the latest week only (`dags/`, `docker-compose.yml`, `Dockerfile`) | 4 |
 | Grocery prices from Open Prices: any store there is a config line, no code (`tracker.py`) | 2 |
-| Web shop reader: listing pages followed page by page as fast as the site answers, waiting out any "too many requests" reply (robots.txt is not read); two example parsers with saved pages and tests (`tracker.py`, `parsers.py`, `tests/`) | 3 |
+| Web shop reader: the first listing page, then every later page its pager lists, 8 at a time, as fast as the site answers, waiting out any "too many requests" reply (robots.txt is not read); two example parsers with saved pages and tests (`tracker.py`, `parsers.py`, `tests/`) | 3 |
 | Matching: barcode for groceries, names for web shops on their identifying words, one listing per product per shop, closest pairs first (`tracker.py`, `tests/`) | 4 |
 | Price history in SQL: every price kept, one price per listing per day, changes, gaps, undercuts with the client's threshold (`sql/schema.sql`) | 3 |
 | The undercut email (`tracker.py`) | 1 |
@@ -46,7 +46,7 @@ Typical work for one client beyond the template. Hours are an estimate.
 
 | Work | Estimate (hours) |
 |---|---|
-| **A parser per competitor web shop the template does not read** (`parsers.py`): find the listing pages, the title, price and next-page parts of the page, save one page in `tests/pages/` with a test, run it on the live site. About 3 hours for a site whose pages carry their prices; add about 3 more for a site that builds its pages in the browser or sits behind a bot wall (a browser fetcher instead of plain requests). Typical client: three sites | 9 |
+| **A parser per competitor web shop the template does not read** (`parsers.py`): find the listing pages, the title and price parts of the page and how its pager names the later pages, save one page in `tests/pages/` with a test, run it on the live site. About 3 hours for a site whose pages carry their prices; add about 3 more for a site that builds its pages in the browser or sits behind a bot wall (a browser fetcher instead of plain requests). Typical client: three sites | 9 |
 | Matching rules for the client's own naming beyond the default words (sizes, units, own brands) | 2 |
 | Hosting the weekly run (a small server or the client's machine) and the Power BI refresh | 3 |
 | **Total** | **14** |

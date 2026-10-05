@@ -42,9 +42,10 @@ matching was not scored.
 Each competitor is one entry with `id`, `name`, `kind` and `city`, then either:
 
 - **a web shop:** `parser` (a function in `parsers.py`) and `pages` (the first listing page or pages;
-  the parser follows each page's "next" link). **A new site needs a new parser:** a function that
+  the later pages are fetched in parallel). **A new site needs a new parser:** a function that
   reads one listing page and returns its products (page address, title, price, currency) and the
-  next page's address, plus one saved page in `tests/pages/` and a test. That is the per-client work
+  addresses of the later listing pages, read from the page's pager, plus one saved page in
+  `tests/pages/` and a test. That is the per-client work
   this template cannot do in advance; `docs/new-client.md` counts it.
 - **a grocery store on Open Prices:** `open_prices_location`, the store's location id on
   prices.openfoodfacts.org. No code needed.

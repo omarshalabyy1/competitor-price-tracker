@@ -16,8 +16,8 @@ inputs:                              # file names in data/input/ (columns: data/
   match_truth: match_truth.csv       # optional: the right listing for some products, to score the name matching
 
 competitors:                         # one entry per competitor store
-  # A web shop is read page by page: `parser` names its function in parsers.py, `pages` lists the
-  # first listing page(s) and the parser follows each page's "next" link.
+  # A web shop: `parser` names its function in parsers.py, `pages` lists the first listing page(s);
+  # the parser reads the later pages from the first page's pager, and they are fetched in parallel.
   - id: books-toscrape
     name: Books to Scrape
     kind: web shop
