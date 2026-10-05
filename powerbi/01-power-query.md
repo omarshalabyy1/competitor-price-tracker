@@ -1,6 +1,7 @@
 # 1. Power Query
 
-The report reads the local warehouse: PostgreSQL on `127.0.0.1:5440`, database `tracker`, after
+The report reads the local warehouse: PostgreSQL at `warehouse.host`:`warehouse.port`, database
+`warehouse.database` in `config/client.yaml` (the demo: `127.0.0.1:5440`, `tracker`), after
 `docker compose up -d` and the `competitor_prices` DAG's catch-up (steps 1 to 5 of
 [`08-build-checklist.md`](08-build-checklist.md)). Nothing is read from files.
 
@@ -11,12 +12,13 @@ heading, open **Home > Advanced editor**, delete what is there and paste the cod
 | Query | Source | Columns | Renames | Load |
 |---|---|---|---|---|
 | `WarehouseServer` | parameter (text) | none | none | no (parameter) |
+| `WarehouseDatabase` | parameter (text) | none | none | no (parameter) |
 | `Product` | the `product` table | 8 (7 + `Key product`) | none | yes |
 | `Store` | the `store` table | 4 | none | yes |
 | `Daily Price` | the `daily_price` view, our products only | 6 | none | yes |
 | `Price Change` | the `price_change` view | 11 (10 + `Direction`) | none | yes |
 | `Price Gap` | the `price_gap` view | 8 (7 + `Position`) | none | yes |
-| `Date` | generated from `Daily Price[observed_on]` | 5 | none | yes |
+| `Date` | generated from `Daily Price[observed_on]` | 4 | none | yes |
 
 Why no renames: the column names match [`sql/schema.sql`](../sql/schema.sql) and the SQL in
 `06-checks.md`, so a number on a card can be checked against the warehouse word for word. Visuals
@@ -31,20 +33,21 @@ cannot turn a price into text.
 
 ## The first connection
 
-The first query you create asks for credentials: choose **Database**, user `tracker`, password =
-`WAREHOUSE_PASSWORD` from the repo's `.env`, and apply them to `127.0.0.1:5440`. If Power BI says
+The first query you create asks for credentials: choose **Database**, user = `warehouse.user` in
+`config/client.yaml`, password = `DB_PASSWORD` from the repo's `.env`, and apply them to the server. If Power BI says
 it cannot connect with encryption, choose **OK** to connect without it: the warehouse listens on
 your laptop only.
 
-## WarehouseServer (parameter)
+## WarehouseServer and WarehouseDatabase (parameters)
 
-**Home > Manage parameters > New parameter**
+**Home > Manage parameters > New parameter**, twice:
 
-- Name: `WarehouseServer`
-- Type: Text
-- Current value: `127.0.0.1:5440`
+- Name: `WarehouseServer`, Type: Text, Current value: `warehouse.host`:`warehouse.port` from
+  `config/client.yaml` (the demo: `127.0.0.1:5440`)
+- Name: `WarehouseDatabase`, Type: Text, Current value: `warehouse.database` (the demo: `tracker`)
 
-Why a parameter: if the port ever changes, it changes in one place.
+Why parameters: the queries name no client's server or database, so a new client changes two
+values, not six queries.
 
 ## Product (loads)
 
@@ -52,7 +55,7 @@ Our catalogue: one row per product we sell.
 
 ```m
 let
-    Source = PostgreSQL.Database(WarehouseServer, "tracker"),
+    Source = PostgreSQL.Database(WarehouseServer, WarehouseDatabase),
     product = Source{[Schema = "public", Item = "product"]}[Data],
     Typed = Table.TransformColumnTypes(product, {
         {"sku", type text}, {"name", type text}, {"category", type text}, {"barcode", type text},
@@ -70,7 +73,7 @@ The competitor stores: one row per store.
 
 ```m
 let
-    Source = PostgreSQL.Database(WarehouseServer, "tracker"),
+    Source = PostgreSQL.Database(WarehouseServer, WarehouseDatabase),
     store = Source{[Schema = "public", Item = "store"]}[Data],
     Kept = Table.SelectColumns(store, {"store_id", "name", "kind", "city"}),
     Typed = Table.TransformColumnTypes(Kept, {
@@ -85,7 +88,7 @@ Every competitor price of our products: one row per listing per day.
 
 ```m
 let
-    Source = PostgreSQL.Database(WarehouseServer, "tracker"),
+    Source = PostgreSQL.Database(WarehouseServer, WarehouseDatabase),
     daily_price = Source{[Schema = "public", Item = "daily_price"]}[Data],
     Ours = Table.SelectRows(daily_price, each [sku] <> null),
     Kept = Table.SelectColumns(Ours, {"store_id", "listing_key", "sku", "observed_on", "price", "is_discounted"}),
@@ -104,7 +107,7 @@ Every price change on our products: one row per change.
 
 ```m
 let
-    Source = PostgreSQL.Database(WarehouseServer, "tracker"),
+    Source = PostgreSQL.Database(WarehouseServer, WarehouseDatabase),
     price_change = Source{[Schema = "public", Item = "price_change"]}[Data],
     Kept = Table.SelectColumns(price_change, {
         "store_id", "listing_key", "sku", "observed_on", "old_price", "new_price", "change_pct",
@@ -127,7 +130,7 @@ Each matched listing's latest price against ours: one row per listing.
 
 ```m
 let
-    Source = PostgreSQL.Database(WarehouseServer, "tracker"),
+    Source = PostgreSQL.Database(WarehouseServer, WarehouseDatabase),
     price_gap = Source{[Schema = "public", Item = "price_gap"]}[Data],
     Typed = Table.TransformColumnTypes(price_gap, {
         {"store_id", type text}, {"listing_key", type text}, {"sku", type text},
@@ -152,14 +155,10 @@ let
     Typed = Table.TransformColumnTypes(AsTable, {{"Date", type date}}),
     Year = Table.AddColumn(Typed, "Year", each Date.Year([Date]), Int64.Type),
     Month = Table.AddColumn(Year, "Month", each Date.ToText([Date], "MMM yyyy", "en-US"), type text),
-    MonthNumber = Table.AddColumn(Month, "Month Number", each Date.Year([Date]) * 100 + Date.Month([Date]), Int64.Type),
-    WeekStart = Table.AddColumn(MonthNumber, "Week Start", each Date.StartOfWeek([Date], Day.Sunday), type date)
+    MonthNumber = Table.AddColumn(Month, "Month Number", each Date.Year([Date]) * 100 + Date.Month([Date]), Int64.Type)
 in
-    WeekStart
+    MonthNumber
 ```
-
-Why the weeks start on Sunday: the weekly runs cover Sunday to Sunday, so a week here is the same
-week as a run.
 
 **Home > Close & apply.** Then go to [`02-model.md`](02-model.md).
 

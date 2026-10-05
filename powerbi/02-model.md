@@ -86,7 +86,7 @@ Set in **Column tools > Format** with the column selected.
 |---|---|---|
 | `Product[our_price]`, `Daily Price[price]`, `Price Change[old_price]`, `Price Change[new_price]`, `Price Gap[competitor_price]`, `Price Gap[our_price]` | Fixed decimal, 2 decimals, no currency symbol | Prices to the cent; no symbol because the books shop is in GBP and the rest in USD |
 | `Price Change[change_pct]`, `Price Gap[gap_pct]` | Decimal number, 1 decimal | Already in percent: -25.0 means 25% lower |
-| `Date[Date]`, `Date[Week Start]`, `Price Change[observed_on]`, `Price Change[caught_week]`, `Price Gap[last_seen]` | Short date (`yyyy-mm-dd`) | Same as the warehouse and the checks |
+| `Date[Date]`, `Price Change[observed_on]`, `Price Change[caught_week]`, `Price Gap[last_seen]` | Short date (`yyyy-mm-dd`) | Same as the warehouse and the checks |
 | `Date[Year]` | Whole number, thousands separator off | A year, not a count |
 
 ## Display folders

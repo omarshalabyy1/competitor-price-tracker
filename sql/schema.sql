@@ -2,7 +2,7 @@
 -- every price ever seen (price_observation, append-only) and the views the alert and Power BI read.
 -- Safe to run again: the load_reference step runs it at the start of every weekly run.
 
-CREATE TABLE IF NOT EXISTS product (          -- the client's own catalogue (data/catalogue.csv)
+CREATE TABLE IF NOT EXISTS product (          -- the client's own catalogue (inputs.catalogue in data/input/)
     sku       text PRIMARY KEY,
     name      text NOT NULL,
     category  text NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS product (          -- the client's own catalogue (dat
     is_key    boolean NOT NULL                -- key products get the undercut alert
 );
 
-CREATE TABLE IF NOT EXISTS store (            -- competitor stores (data/stores.csv)
+CREATE TABLE IF NOT EXISTS store (            -- competitor stores (competitors in config/client.yaml)
     store_id   text PRIMARY KEY,
     name       text NOT NULL,
     kind       text NOT NULL,                 -- 'web shop' or 'grocery store'
@@ -63,12 +63,14 @@ ORDER BY o.store_id, o.listing_key, o.observed_on, o.price, o.published_at;
 
 -- Every price change on our products: a day's price that differs from the listing's previous day
 -- with a price. caught_week is the run that had both prices, so the first run that could see it.
--- An undercut: a competitor cut a key product's price to below ours.
+-- An undercut: a competitor cut a key product's price to more than rules.undercut_pct percent below
+-- ours (client.undercut_pct, set on the database by load_reference).
 CREATE OR REPLACE VIEW price_change AS
 SELECT t.store_id, t.listing_key, t.sku, t.observed_on, t.old_price, t.price AS new_price,
        round((t.price - t.old_price) / t.old_price * 100, 1) AS change_pct,
        t.currency, t.is_discounted, t.published_at, t.caught_week,
-       p.is_key AND t.price < t.old_price AND t.price < p.our_price AS is_undercut
+       p.is_key AND t.price < t.old_price
+           AND t.price < p.our_price * (1 - current_setting('client.undercut_pct')::numeric / 100) AS is_undercut
 FROM (
     SELECT d.*,
            lag(d.price) OVER w AS old_price,

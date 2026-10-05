@@ -12,6 +12,8 @@
 
 <h3 align="center">Know the week a competitor changes a price, and get an email<br>when one cuts a key product below yours.</h3>
 
+<p align="center"><b>New client?</b> See <a href="docs/new-client.md">docs/new-client.md</a>.</p>
+
 ## The problem
 
 Someone checks a few competitor sites by hand, now and then. By the time anyone notices that a
@@ -90,7 +92,7 @@ You need Docker Desktop.
 ```bash
 git clone https://github.com/omarshalabyy1/competitor-price-tracker
 cd competitor-price-tracker
-cp .env.example .env          # set WAREHOUSE_PASSWORD; the Gmail lines are optional
+cp .env.example .env          # set DB_PASSWORD; the Gmail lines are optional
 docker compose up -d --build  # Airflow http://127.0.0.1:8090, warehouse localhost:5440
 ```
 
@@ -110,11 +112,15 @@ pip install -r requirements.txt pytest && pytest
 
 | Where | What |
 |---|---|
+| [config/client.yaml](config/client.yaml) | Every client value: competitors, rules, schedule, colours (read through [config.py](config.py)) |
 | [tracker.py](tracker.py) | The steps: collect, match, alert; one function each |
+| [parsers.py](parsers.py) | One page reader per competitor web shop |
 | [dags/competitor_prices.py](dags/competitor_prices.py) | The weekly Airflow DAG |
 | [sql/schema.sql](sql/schema.sql) | Tables and the views for changes, gaps and undercuts |
-| [data/](data/) | Our catalogue and the competitor stores |
-| [make_catalogue.py](make_catalogue.py) | How our catalogue was made (run once) |
+| [data/input/](data/input/) | Our catalogue, and the guide to the input files |
+| [make_catalogue.py](make_catalogue.py) | How the demo catalogue was made (run once) |
+| [theme.py](theme.py) | Writes the Power BI theme from the config's colours |
+| [docs/new-client.md](docs/new-client.md) | Using this repo as a template for a client |
 | [analysis/](analysis/) | The notebook behind every number |
 | [powerbi/](powerbi/) | The report, step by step |
 | [tests/](tests/) | Page parsing and name matching |
@@ -129,9 +135,9 @@ pip install -r requirements.txt pytest && pytest
 - **Web shop pages:** [Books to Scrape](https://books.toscrape.com) and the
   [Web Scraper test shop](https://webscraper.io/test-sites/e-commerce/static), two sites built
   for scraping practice; their prices do not change.
-- **Our catalogue** ([data/catalogue.csv](data/catalogue.csv)) is made up by
+- **Our catalogue** ([data/input/catalogue.csv](data/input/catalogue.csv)) is made up by
   [make_catalogue.py](make_catalogue.py): the 200 grocery products the most of those stores sell,
   priced near their usual price, and 160 web shop products renamed the way our catalogue names
-  them, with the right answers in [data/match_truth.csv](data/match_truth.csv). It uses product
+  them, with the right answers in [data/input/match_truth.csv](data/input/match_truth.csv). It uses product
   names and barcodes from Open Food Facts and is shared under the same ODbL licence. The store
   is made up; the competitor prices are real.

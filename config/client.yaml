@@ -1,0 +1,68 @@
+# Everything a client changes, except secrets (those go in .env).
+# Read only through config.py (load_config). A key exists here only if something reads it.
+
+client:
+  name: Sample general store         # notebook chart titles and the alert email subject
+  currency: USD                      # the label printed with prices in the notebook and the alert email
+
+warehouse:                           # as seen from your laptop; the password is DB_PASSWORD in .env
+  host: 127.0.0.1
+  port: 5440                         # if you change it, change the ports line in docker-compose.yml too
+  database: tracker                  # if you change it or the user, change docker-compose.yml too
+  user: tracker
+
+inputs:                              # file names in data/input/ (columns: data/input/README.md)
+  catalogue: catalogue.csv           # our products: the prices we compare against
+  match_truth: match_truth.csv       # optional: the right listing for some products, to score the name matching
+
+competitors:                         # one entry per competitor store
+  # A web shop is read page by page: `parser` names its function in parsers.py, `pages` lists the
+  # first listing page(s) and the parser follows each page's "next" link.
+  - id: books-toscrape
+    name: Books to Scrape
+    kind: web shop
+    city: Online
+    parser: books_toscrape
+    pages:
+      - https://books.toscrape.com/catalogue/page-1.html
+  - id: webscraper-io
+    name: Web Scraper test shop
+    kind: web shop
+    city: Online
+    parser: webscraper_io
+    pages:
+      - https://webscraper.io/test-sites/e-commerce/static/computers/laptops
+      - https://webscraper.io/test-sites/e-commerce/static/computers/tablets
+      - https://webscraper.io/test-sites/e-commerce/static/phones/touch
+  # A grocery store is read from Open Prices (prices.openfoodfacts.org): its location id there.
+  - {id: op-3998, name: Safeway (N Shoreline Blvd), kind: grocery store, city: Mountain View, open_prices_location: 3998}
+  - {id: op-5032, name: Safeway (San Antonio Rd), kind: grocery store, city: Mountain View, open_prices_location: 5032}
+  - {id: op-4191, name: Nob Hill Foods, kind: grocery store, city: Mountain View, open_prices_location: 4191}
+  - {id: op-4120, name: Costco, kind: grocery store, city: Mountain View, open_prices_location: 4120}
+  - {id: op-4190, name: Smart & Final extra!, kind: grocery store, city: Mountain View, open_prices_location: 4190}
+  - {id: op-3999, name: Trader Joe's, kind: grocery store, city: Mountain View, open_prices_location: 3999}
+  - {id: op-4143, name: Ava's Market and Deli, kind: grocery store, city: Mountain View, open_prices_location: 4143}
+  - {id: op-3984, name: Walmart Supercenter, kind: grocery store, city: Mountain View, open_prices_location: 3984}
+  - {id: op-4192, name: 99 Ranch Market, kind: grocery store, city: Mountain View, open_prices_location: 4192}
+
+rules:
+  match_threshold: 0.6               # a web shop listing is our product when the names share more than this share of their words
+  undercut_pct: 0                    # an undercut: a key product cut to more than this percent below our price
+
+schedule:                            # when Airflow reads the competitors (read when Airflow parses the DAG)
+  cron: "0 0 * * 0"                  # weekly; keep it at midnight so each run covers whole days
+  timezone: UTC
+  start_date: 2025-09-07             # the first week to load on the first start; a day the cron runs on
+
+alert:
+  to: ""                             # who gets the undercut email; empty = the sending account (GMAIL_USER in .env)
+
+report:
+  title: Competitor price tracker    # the Power BI theme name
+  colours:                           # the Power BI theme (python theme.py) and the notebook charts
+    data: ["#2563EB", "#0E1630", "#8DB0FF", "#4A5675", "#1D4FD7", "#C7D7FE"]   # 1st = main series
+    text: "#0E1630"
+    muted: "#4A5675"
+    page: "#F4F6FB"
+    line: "#E2E7F1"
+    danger: "#C2410C"

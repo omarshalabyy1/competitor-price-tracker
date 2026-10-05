@@ -2,3 +2,6 @@
 __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
+data/input/*.csv
+!data/input/catalogue.csv
+!data/input/match_truth.csv

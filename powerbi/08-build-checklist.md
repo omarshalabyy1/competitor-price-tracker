@@ -6,7 +6,7 @@ it is off, fix that step first.
 ## Prepare the warehouse
 
 1. Start Docker Desktop. In the repo folder, if there is no `.env` yet, copy `.env.example` to `.env`
-   and set `WAREHOUSE_PASSWORD` to a password of your choice. Then run `docker compose up -d --build`.
+   and set `DB_PASSWORD` to a password of your choice. Then run `docker compose up -d --build`.
 2. Open Airflow at http://127.0.0.1:8090 and switch `competitor_prices` on (the toggle left of its
    name). It catches up one week at a time from 7 September 2025, about half an hour.
 3. **Check:** in Airflow every run of `competitor_prices` is green, and the newest one covers last
@@ -27,7 +27,8 @@ it is off, fix that step first.
 
 ## Power Query (`01-power-query.md`)
 
-8. **Home > Transform data**. Create the `WarehouseServer` parameter (`127.0.0.1:5440`).
+8. **Home > Transform data**. Create the `WarehouseServer` and `WarehouseDatabase` parameters from
+   `warehouse.*` in `config/client.yaml` (the demo: `127.0.0.1:5440` and `tracker`).
 9. Create the queries in this order, pasting each one's M code: `Product`, `Store`, `Daily Price`,
    `Price Change`, `Price Gap`, `Date`. The first asks for credentials: Database, user `tracker`, the
    password from `.env`.

@@ -1,9 +1,11 @@
-"""Run once: generate the client's own catalogue (data/catalogue.csv), the products the tracker
-watches. The client is a made-up store that competes with the stores in data/stores.csv:
+"""Run once, for the demo only: generate the made-up client's catalogue (data/input/catalogue.csv),
+the products the tracker watches. The client competes with the stores in config/client.yaml:
 
 - grocery: the 200 products sold in the most of those stores, at our own price near their usual price;
 - books and devices: a sample of the web shops' products, named the way our catalogue names them
-  (so the match step has real work to do), with the right answers kept in data/match_truth.csv.
+  (so the match step has real work to do), with the right answers kept in data/input/match_truth.csv.
+
+A real client brings its own catalogue instead (data/input/README.md).
 
     python make_catalogue.py
 """
@@ -16,9 +18,12 @@ from collections import defaultdict
 from datetime import datetime, timezone
 
 import tracker
+from config import load_config
+from parsers import PARSERS
 
 random.seed(7)  # the same catalogue on every run
-DATA = tracker.ROOT / "data"
+DATA = tracker.ROOT / "data" / "input"
+SHOPS = {s["id"]: s for s in load_config()["competitors"]}
 
 
 def our_price(price, below, above):
@@ -27,8 +32,7 @@ def our_price(price, below, above):
 
 
 def grocery_products():
-    with open(DATA / "stores.csv", newline="", encoding="utf-8") as f:
-        stores = [s["source_ref"] for s in csv.DictReader(f) if s["source"] == "open prices"]
+    stores = [str(s["open_prices_location"]) for s in SHOPS.values() if "open_prices_location" in s]
     prices = tracker.fetch_open_prices(stores, datetime(2025, 9, 7, tzinfo=timezone.utc), datetime.now(timezone.utc))
     by_barcode = defaultdict(list)
     for p in prices:
@@ -74,17 +78,15 @@ def our_device_name(title):
 def web_shop_products():
     rows, truth = [], []
 
-    books_page, parse = tracker.WEB_SHOPS["books-toscrape"]
-    books = tracker.crawl(books_page[0], parse)
+    books = tracker.crawl(SHOPS["books-toscrape"]["pages"][0], PARSERS["books_toscrape"])
     for i, book in enumerate(random.sample(books, 100), 1):
         rows.append({"sku": f"BOK-{i:04d}", "name": our_book_name(book["title"]), "category": "Books",
                      "barcode": "", "our_price": our_price(float(book["price"]), 0.07, 0.08),
                      "currency": "GBP", "is_key": random.random() < 0.2})
         truth.append({"sku": rows[-1]["sku"], "store_id": "books-toscrape", "listing_key": book["listing_key"]})
 
-    device_pages, parse = tracker.WEB_SHOPS["webscraper-io"]
     devices = [{**d, "category": page.rsplit("/", 1)[1].replace("touch", "phones").capitalize()}
-               for page in device_pages for d in tracker.crawl(page, parse)]
+               for page in SHOPS["webscraper-io"]["pages"] for d in tracker.crawl(page, PARSERS["webscraper_io"])]
     for i, device in enumerate(random.sample(devices, 60), 1):
         rows.append({"sku": f"DEV-{i:04d}", "name": our_device_name(device["title"]), "category": device["category"],
                      "barcode": "", "our_price": our_price(float(device["price"]), 0.07, 0.08),

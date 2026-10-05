@@ -3,7 +3,8 @@
 #   docker compose up -d --build   # Airflow http://127.0.0.1:8090 (no login), warehouse localhost:5440
 #   docker compose down            # stops everything; the data volumes stay
 #
-# Settings come from .env (gitignored; copy .env.example).
+# Secrets come from .env (gitignored; copy .env.example); every other client value from config/client.yaml.
+# The port, database and user below must match warehouse.* in config/client.yaml.
 
 name: competitor-price-tracker
 
@@ -13,7 +14,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: tracker
-      POSTGRES_PASSWORD: ${WAREHOUSE_PASSWORD:?set in .env}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?set in .env}
       POSTGRES_DB: tracker
     ports:
       - "127.0.0.1:5440:5432"
@@ -37,14 +38,13 @@ services:
     environment:
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS: "true"
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://tracker:${WAREHOUSE_PASSWORD}@warehouse:5432/airflow
-      PYTHONPATH: /opt/project  # so the DAG can import tracker.py
-      WAREHOUSE_HOST: warehouse
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://tracker:${DB_PASSWORD}@warehouse:5432/airflow
+      PYTHONPATH: /opt/project  # so the DAG can import tracker.py and config.py
+      WAREHOUSE_HOST: warehouse  # load_config() prefers these two to warehouse.host and .port inside Docker
       WAREHOUSE_PORT: "5432"
-      WAREHOUSE_PASSWORD: ${WAREHOUSE_PASSWORD}
+      DB_PASSWORD: ${DB_PASSWORD}
       GMAIL_USER: ${GMAIL_USER:-}
       GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD:-}
-      MAIL_TO: ${MAIL_TO:-}
     ports:
       - "127.0.0.1:8090:8080"
     volumes:
