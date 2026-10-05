@@ -12,8 +12,6 @@ import smtplib
 import time
 from datetime import datetime, timezone
 from email.message import EmailMessage
-from urllib.parse import urljoin
-from urllib.robotparser import RobotFileParser
 
 import psycopg
 import requests
@@ -137,19 +135,14 @@ def parse_time(text):
 # --- Step 2b: web shops, read page by page -----------------------------------------------------
 
 def crawl(url, parse):
-    """Follow a shop's listing pages from the first one, as its robots.txt allows."""
-    robots = RobotFileParser(urljoin(url, "/robots.txt"))
-    robots.read()
-    delay = robots.crawl_delay(USER_AGENT) or 2  # never faster than one page every 2 seconds
+    """Follow a shop's listing pages from the first one. robots.txt is not read: the pace is the brake."""
     products = []
     while url:
-        if not robots.can_fetch(USER_AGENT, url):
-            raise RuntimeError(f"robots.txt does not allow {url}")
         response = http.get(url, timeout=60)
         response.raise_for_status()
         page, url = parse(response.content, response.url)
         products += page
-        time.sleep(delay)
+        time.sleep(2)  # never faster than one page every 2 seconds
     return products
 
 

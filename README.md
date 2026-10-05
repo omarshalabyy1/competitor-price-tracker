@@ -25,12 +25,12 @@ a one-week promotion or the new normal, because no one wrote the old prices down
 A pipeline that runs once a week on its own and keeps every competitor price it ever sees.
 
 <p align="center">
-  <img width="100%" src="docs/how-it-works.svg" alt="How it works: 01 Collect, competitor prices every week inside each source's limits; 02 Match, each listing paired with our product by barcode or by name; 03 Store, every price kept with its date, never overwritten; 04 Alert, an email when a key product is cut below our price; 05 Report, Power BI price gaps and changes by product.">
+  <img width="100%" src="docs/how-it-works.svg" alt="How it works: 01 Collect, competitor prices every week, from product pages and a shelf-price feed; 02 Match, each listing paired with our product by barcode or by name; 03 Store, every price kept with its date, never overwritten; 04 Alert, an email when a key product is cut below our price; 05 Report, Power BI price gaps and changes by product.">
 </p>
 
-1. **Collect.** It reads the competitors' product pages one listing page at a time, as each
-   site's `robots.txt` allows and never faster than one page every two seconds, plus the shelf
-   prices published for the grocery stores that week.
+1. **Collect.** It reads the competitors' product pages one listing page at a time, never
+   faster than one page every two seconds, plus the shelf prices published for the grocery stores
+   that week.
 2. **Match.** Each competitor listing is paired with our product: by barcode where there is
    one, by name where there is not. Names are compared on the words that identify a product
    (subtitles, series and filler words dropped), one listing per product per store, the closest
