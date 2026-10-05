@@ -46,7 +46,7 @@ Each competitor is one entry with `id`, `name`, `kind` and `city`, then either:
   reads one listing page and returns its products (page address, title, price, currency) and the
   addresses of the later listing pages, read from the page's pager, plus one saved page in
   `tests/pages/` and a test. That is the per-client work
-  this template cannot do in advance; `docs/new-client.md` counts it.
+  that cannot be done in advance.
 - **a grocery store on Open Prices:** `open_prices_location`, the store's location id on
   prices.openfoodfacts.org. No code needed.
 

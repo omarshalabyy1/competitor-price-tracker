@@ -12,8 +12,6 @@
 
 <h3 align="center">Know the week a competitor changes a price, and get an email<br>when one cuts a key product below yours.</h3>
 
-<p align="center"><b>New client?</b> See <a href="docs/new-client.md">docs/new-client.md</a>.</p>
-
 ## The problem
 
 Someone checks a few competitor sites by hand, now and then. By the time anyone notices that a
@@ -120,7 +118,6 @@ pip install -r requirements.txt pytest && pytest
 | [data/input/](data/input/) | Our catalogue, and the guide to the input files |
 | [make_catalogue.py](make_catalogue.py) | How the demo catalogue was made (run once) |
 | [theme.py](theme.py) | Writes the Power BI theme from the config's colours |
-| [docs/new-client.md](docs/new-client.md) | Using this repo as a template for a client |
 | [analysis/](analysis/) | The notebook behind every number |
 | [powerbi/](powerbi/) | The report, step by step |
 | [tests/](tests/) | Page parsing and name matching |
