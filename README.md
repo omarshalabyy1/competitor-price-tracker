@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1200&color=2DD4BF&center=true&vCenter=true&width=760&lines=Every+competitor+price%2C+every+week;Collect.+Match.+Compare.+Alert.;An+email+when+a+key+product+is+undercut" alt="Every competitor price, every week">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10">
   <img src="https://img.shields.io/badge/Apache_Airflow-3-017CEE?style=for-the-badge&logo=apacheairflow&logoColor=white" alt="Apache Airflow 3">
   <img src="https://img.shields.io/badge/PostgreSQL-17-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL 17">
@@ -53,6 +57,10 @@ day they arrived.
 
 ## 📈 The result
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/221352987-68da234d-4d62-4e9d-9d7f-098dc657c2dc.gif" width="100" alt="Moving chart">
+</p>
+
 **356 products across 10 stores: 127 price changes caught, each by the first weekly run that
 could see it.** The checks behind every number are in [the notebook](analysis/analysis.ipynb).
 
@@ -84,6 +92,10 @@ fields, the theme, and the numbers each card must show.
 <!-- Screenshots of the two pages go here once the report is built: powerbi/screenshots/ -->
 
 ## ▶️ Run it
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100" alt="Code">
+</p>
 
 You need Docker Desktop.
 
@@ -138,3 +150,7 @@ pip install -r requirements.txt pytest && pytest
   them, with the right answers in [data/input/match_truth.csv](data/input/match_truth.csv). It uses product
   names and barcodes from Open Food Facts and is shared under the same ODbL licence. The store
   is made up; the competitor prices are real.
+
+<p align="center">
+  <img width="100%" src="docs/footer.svg" alt="Never be the last to know about a price cut.">
+</p>
