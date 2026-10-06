@@ -2,7 +2,7 @@
 # Read only through config.py (load_config). A key exists here only if something reads it.
 
 client:
-  name: Sample general store         # notebook chart titles and the alert email subject
+  name: General store                # notebook chart titles and the alert email subject
   currency: USD                      # the label printed with prices in the notebook and the alert email
 
 warehouse:                           # as seen from your laptop; the password is DB_PASSWORD in .env

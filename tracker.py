@@ -260,11 +260,12 @@ def send_alert(run_week):
             return
         currency = cfg["client"]["currency"]
         message = EmailMessage()
-        message["Subject"] = f"{cfg['client']['name']} price alert: {len(rows)} key products undercut (week of {run_week})"
+        products = "key product" if len(rows) == 1 else "key products"
+        message["Subject"] = f"{cfg['client']['name']} price alert: {len(rows)} {products} undercut (week of {run_week})"
         message["From"] = os.environ["GMAIL_USER"]
         message["To"] = cfg["alert"]["to"] or os.environ["GMAIL_USER"]
         message.set_content("\n".join(
-            [f"Competitors cut these key products below our price (week of {run_week}, prices in {currency}):", ""]
+            [f"Competitors cut {'this' if len(rows) == 1 else 'these'} {products} below our price (week of {run_week}, prices in {currency}):", ""]
             + [f"- {product}: {store} {old} -> {new} on {day} (ours {ours}, {(new - ours) / ours:+.0%})"
                for store, product, day, old, new, ours in rows]
         ))
