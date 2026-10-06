@@ -52,21 +52,19 @@
   <rect x="594" y="219.0" width="175" height="32" rx="7" fill="#13233D" stroke="#14B8A6" stroke-opacity="0.75"/><text x="604" y="240.0" class="name">price_gap</text><text x="761" y="240.0" class="count" text-anchor="end">824</text>
   <rect x="594" y="288" width="175" height="32" rx="7" fill="#13233D" stroke="#14B8A6" stroke-opacity="0.75"/><text x="604" y="309" class="name">price_change</text><text x="761" y="309" class="count" text-anchor="end">127</text>
   <rect x="594" y="357.0" width="175" height="32" rx="7" fill="#13233D" stroke="#14B8A6" stroke-opacity="0.75"/><text x="604" y="378.0" class="name">undercut</text><text x="761" y="378.0" class="count" text-anchor="end">17</text>
-  <path d="M184 166.0 C199.0 166.0 199.0 166.0 212 166.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M184 212.0 C199.0 212.0 199.0 212.0 212 212.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M184 281.0 C199.0 281.0 199.0 281.0 212 281.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M184 281.0 C199.0 281.0 199.0 327.0 212 327.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M184 327.0 C199.0 327.0 199.0 281.0 212 281.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M184 327.0 C199.0 327.0 199.0 327.0 212 327.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M384 174.0 C402 174.0 402 281.0 386 281.0" class="edge" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
-  <path d="M384 281.0 C399.0 281.0 399.0 304.0 412 304.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M384 327.0 C399.0 327.0 399.0 304.0 412 304.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M564 304.0 C579.0 304.0 579.0 235.0 592 235.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M564 304.0 C579.0 304.0 579.0 304.0 592 304.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M384 166.0 H572" class="edge"/>
-  <path d="M572 166.0 C583.0 166.0 583.0 235.0 592 235.0" class="edge" marker-end="url(#arrow)"/>
-  <path d="M572 166.0 C583.0 166.0 583.0 304.0 592 304.0" class="edge" marker-end="url(#arrow)"/>
-  <line x1="681.5" y1="320" x2="681.5" y2="355.0" class="edge" marker-end="url(#arrow)"/>
+  <path d="M184 166.0 H213" class="edge" marker-end="url(#arrow)"/>
+  <path d="M184 212.0 H213" class="edge" marker-end="url(#arrow)"/>
+  <path d="M184 281.0 H199 M184 327.0 H199 M199 281.0 V327.0" class="edge"/>
+  <path d="M199 281.0 H213" class="edge" marker-end="url(#arrow)"/>
+  <path d="M199 327.0 H213" class="edge" marker-end="url(#arrow)"/>
+  <path d="M384 174.0 H398 Q404 174.0 404 180.0 V267.0 Q404 273.0 398 273.0 H385" class="edge" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+  <path d="M384 287.0 H388.5 Q394 287.0 394 292.5 V292.5 Q394 298.0 399.5 298.0 H413" class="edge" marker-end="url(#arrow)"/>
+  <path d="M384 327.0 H388 Q394 327.0 394 321.0 V316.0 Q394 310.0 400 310.0 H413" class="edge" marker-end="url(#arrow)"/>
+  <path d="M564 304.0 H593" class="edge" marker-end="url(#arrow)"/>
+  <path d="M545 288 V241.0 Q545 235.0 551 235.0 H593" class="edge" marker-end="url(#arrow)"/>
+  <path d="M384 166.0 H634 Q640 166.0 640 172.0 V218.0" class="edge" marker-end="url(#arrow)"/>
+  <path d="M574 166.0 V288.0 Q574 294.0 580 294.0 H593" class="edge" marker-end="url(#arrow)"/>
+  <line x1="681.5" y1="320" x2="681.5" y2="356.0" class="edge" marker-end="url(#arrow)"/>
   <rect x="800" y="150" width="176" height="118" rx="12" fill="#13233D" stroke="#22C55E" stroke-opacity="0.75"/>
   <text x="888.0" y="171" class="where" text-anchor="middle">Power BI, two pages</text>
   <rect x="808" y="184" width="160" height="30" rx="15" fill="#166534"/><text x="888.0" y="204" class="small" style="font-size:12px" text-anchor="middle">Price gaps</text>
@@ -76,10 +74,10 @@
   <rect x="800" y="346.0" width="176" height="54" rx="10" fill="#13233D" stroke="#22C55E" stroke-opacity="0.75"/>
   <text x="812" y="368.0" class="name" font-weight="700">alert email</text><text x="812" y="387.0" class="count" style="fill:#CBD5E1;font-size:12px">undercuts on key products</text>
   <path d="M769 235.0 H784 M769 304.0 H784 M784 209.0 V313.0" class="edge" stroke="#14B8A6"/>
-  <line x1="784" y1="209.0" x2="798" y2="209.0" class="edge" stroke="#22C55E" marker-end="url(#arrow)"/>
-  <line x1="784" y1="313.0" x2="798" y2="313.0" class="edge" stroke="#22C55E" marker-end="url(#arrow)"/>
-  <line x1="769" y1="373.0" x2="798" y2="373.0" class="edge" stroke="#22C55E" marker-end="url(#arrow)"/>
-  <path d="M830 400.0 V451.0 H400 V419.0 H386" class="edge" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+  <line x1="784" y1="209.0" x2="799" y2="209.0" class="edge" stroke="#22C55E" marker-end="url(#arrow)"/>
+  <line x1="784" y1="313.0" x2="799" y2="313.0" class="edge" stroke="#22C55E" marker-end="url(#arrow)"/>
+  <line x1="769" y1="373.0" x2="799" y2="373.0" class="edge" stroke="#22C55E" marker-end="url(#arrow)"/>
+  <path d="M830 400.0 V451.0 H400 V419.0 H385" class="edge" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
   <text x="600" y="445.0" class="where" text-anchor="middle">each email sent is recorded in alert_sent</text>
   <text x="40" y="481.0" class="where" style="font-size:12.5px">Dashed arrow from product: the match step sets each listing's product, by barcode</text>
   <text x="40" y="500.0" class="where" style="font-size:12.5px">(grocery stores) or by name (web shops).</text>
@@ -95,12 +93,12 @@
   <text x="38" y="684" class="where">competitor_prices</text>
   <rect x="214" y="659" width="170" height="26" rx="13" fill="#F59E0B"/><text x="299.0" y="677" class="task" text-anchor="middle">load_reference</text>
   <rect x="414" y="644" width="150" height="26" rx="13" fill="#F59E0B"/><text x="489.0" y="662" class="task" text-anchor="middle">collect_open_prices</text>
-  <path d="M384 672 C399 672 399 657 412 657" class="edge" stroke="#F59E0B" marker-end="url(#amber)"/>
+  <path d="M383 667 H389.0 Q394 667 394 662.0 V662.0 Q394 657 399.0 657 H413" class="edge" stroke="#F59E0B" marker-end="url(#amber)"/>
   <rect x="414" y="674" width="150" height="26" rx="13" fill="#F59E0B"/><text x="489.0" y="692" class="task" text-anchor="middle">collect_web_shops</text>
-  <path d="M384 672 C399 672 399 687 412 687" class="edge" stroke="#F59E0B" marker-end="url(#amber)"/>
+  <path d="M383 677 H389.0 Q394 677 394 682.0 V682.0 Q394 687 399.0 687 H413" class="edge" stroke="#F59E0B" marker-end="url(#amber)"/>
   <rect x="594" y="659" width="175" height="26" rx="13" fill="#F59E0B"/><text x="681.5" y="677" class="task" text-anchor="middle">match</text>
-  <path d="M564 657 C579 657 579 672 592 672" class="edge" stroke="#F59E0B" marker-end="url(#amber)"/>
-  <path d="M564 687 C579 687 579 672 592 672" class="edge" stroke="#F59E0B" marker-end="url(#amber)"/>
+  <path d="M564 657 H567.0 Q572 657 572 662.0 V662.0 Q572 667 577.0 667 H594" class="edge" stroke="#F59E0B" marker-end="url(#amber)"/>
+  <path d="M564 687 H567.0 Q572 687 572 682.0 V682.0 Q572 677 577.0 677 H594" class="edge" stroke="#F59E0B" marker-end="url(#amber)"/>
   <rect x="800" y="659" width="176" height="26" rx="13" fill="#F59E0B"/><text x="888.0" y="677" class="task" text-anchor="middle">send_alert</text>
-  <line x1="769" y1="672" x2="798" y2="672" class="edge" stroke="#F59E0B" marker-end="url(#amber)"/>
+  <line x1="769" y1="672" x2="799" y2="672" class="edge" stroke="#F59E0B" marker-end="url(#amber)"/>
 </svg>

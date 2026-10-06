@@ -29,21 +29,21 @@
   <rect width="1000" height="760" rx="22" fill="url(#bg)"/>
   <text x="40" y="50" class="title">The star schema</text>
   <text x="40" y="74" class="sub">The Power BI model: three facts share Product, Store and Date. Every join is many to one, filtering one way.</text>
-  <path d="M280 213.5 C330.0 213.5 330.0 167.5 380 167.5" class="edge" stroke="#94A3B8"/>
+  <path d="M280 213.5 H344 Q350 213.5 350 207.5 V173.5 Q350 167.5 356 167.5 H380" class="edge" stroke="#94A3B8"/>
   <text x="290" y="208.5" class="key" fill="#CBD5E1" text-anchor="start">*</text><text x="372" y="162.5" class="key" fill="#CBD5E1" text-anchor="end">1</text>
-  <path d="M280 167.5 C330.0 167.5 330.0 427.5 380 427.5" class="edge" stroke="#94A3B8"/>
+  <path d="M280 167.5 H306 Q312 167.5 312 173.5 V421.5 Q312 427.5 318 427.5 H380" class="edge" stroke="#94A3B8"/>
   <text x="290" y="162.5" class="key" fill="#CBD5E1" text-anchor="start">*</text><text x="372" y="422.5" class="key" fill="#CBD5E1" text-anchor="end">1</text>
-  <path d="M280 236.5 C330.0 236.5 330.0 597.5 380 597.5" class="edge" stroke="#94A3B8"/>
+  <path d="M280 236.5 H290 Q296 236.5 296 242.5 V591.5 Q296 597.5 302 597.5 H380" class="edge" stroke="#94A3B8"/>
   <text x="290" y="231.5" class="key" fill="#CBD5E1" text-anchor="start">*</text><text x="372" y="592.5" class="key" fill="#CBD5E1" text-anchor="end">1</text>
-  <path d="M720 543.5 C670.0 543.5 670.0 167.5 620 167.5" class="edge" stroke="#94A3B8"/>
-  <text x="710" y="538.5" class="key" fill="#CBD5E1" text-anchor="end">*</text><text x="628" y="162.5" class="key" fill="#CBD5E1" text-anchor="start">1</text>
-  <path d="M720 497.5 C670.0 497.5 670.0 427.5 620 427.5" class="edge" stroke="#94A3B8"/>
-  <text x="710" y="492.5" class="key" fill="#CBD5E1" text-anchor="end">*</text><text x="628" y="422.5" class="key" fill="#CBD5E1" text-anchor="start">1</text>
-  <path d="M720 213.5 C670.0 213.5 670.0 167.5 620 167.5" class="edge" stroke="#94A3B8"/>
-  <text x="710" y="208.5" class="key" fill="#CBD5E1" text-anchor="end">*</text><text x="628" y="162.5" class="key" fill="#CBD5E1" text-anchor="start">1</text>
-  <path d="M720 167.5 C670.0 167.5 670.0 427.5 620 427.5" class="edge" stroke="#94A3B8"/>
-  <text x="710" y="162.5" class="key" fill="#CBD5E1" text-anchor="end">*</text><text x="628" y="422.5" class="key" fill="#CBD5E1" text-anchor="start">1</text>
-  <path d="M720 236.5 C670.0 236.5 670.0 597.5 620 597.5" class="edge" stroke="#94A3B8"/>
+  <path d="M720 543.5 H646 Q640 543.5 640 537.5 V179.0 Q640 173.0 634 173.0 H620" class="edge" stroke="#94A3B8"/>
+  <text x="710" y="538.5" class="key" fill="#CBD5E1" text-anchor="end">*</text>
+  <path d="M720 497.5 H704 Q698 497.5 698 491.5 V439.0 Q698 433.0 692 433.0 H620" class="edge" stroke="#94A3B8"/>
+  <text x="710" y="492.5" class="key" fill="#CBD5E1" text-anchor="end">*</text>
+  <path d="M720 213.5 H660 Q654 213.5 654 207.5 V168.0 Q654 162.0 648 162.0 H620" class="edge" stroke="#94A3B8"/>
+  <text x="710" y="208.5" class="key" fill="#CBD5E1" text-anchor="end">*</text><text x="628" y="157.0" class="key" fill="#CBD5E1" text-anchor="start">1</text>
+  <path d="M720 167.5 H674 Q668 167.5 668 173.5 V416.0 Q668 422.0 662 422.0 H620" class="edge" stroke="#94A3B8"/>
+  <text x="710" y="162.5" class="key" fill="#CBD5E1" text-anchor="end">*</text><text x="628" y="417.0" class="key" fill="#CBD5E1" text-anchor="start">1</text>
+  <path d="M720 236.5 H688 Q682 236.5 682 242.5 V591.5 Q682 597.5 676 597.5 H620" class="edge" stroke="#94A3B8"/>
   <text x="710" y="231.5" class="key" fill="#CBD5E1" text-anchor="end">*</text><text x="628" y="592.5" class="key" fill="#CBD5E1" text-anchor="start">1</text>
   <rect x="40" y="110" width="240" height="192" rx="10" fill="#13233D" stroke="#2563EB" stroke-width="1.5"/>
   <path d="M40 120 a10 10 0 0 1 10 -10 h220 a10 10 0 0 1 10 10 v36 h-240 Z" fill="#2563EB"/>
