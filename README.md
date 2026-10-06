@@ -84,6 +84,14 @@ could see it.** The checks behind every number are in [the notebook](analysis/an
   <img width="49%" src="docs/gap-by-store.png" alt="Share of each store's listings priced below ours, from 28% to 88% (and 1 of 1 at the smallest store)">
 </p>
 
+## 📬 The alert email
+
+This is the email the run sent for the week of 2 August 2026, when one key product was cut below our price.
+
+<p align="center">
+  <img width="100%" src="docs/email.png" alt="The alert email for the week of 2 August 2026: Smart &amp; Final extra! cut Medium Roast from 11.99 to 10.99 USD on 30 July 2026, below our 11.49, a 4% undercut.">
+</p>
+
 ## 📊 Power BI
 
 The report reads the warehouse directly. The [powerbi/](powerbi/) folder rebuilds it from an
