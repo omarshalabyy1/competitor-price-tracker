@@ -111,7 +111,7 @@ You need Docker Desktop.
 git clone https://github.com/omarshalabyy1/competitor-price-tracker
 cd competitor-price-tracker
 cp .env.example .env          # set DB_PASSWORD; the Gmail lines are optional
-docker compose up -d --build  # Airflow http://127.0.0.1:8090, warehouse localhost:5440
+docker compose up -d --build  # Airflow on port 8090, warehouse on port 5440
 ```
 
 Open Airflow, unpause `competitor_prices`, and it catches up one week at a time from

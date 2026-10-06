@@ -1,7 +1,7 @@
 # 1. Power Query
 
 The report reads the local warehouse: PostgreSQL at `warehouse.host`:`warehouse.port`, database
-`warehouse.database` in `config/client.yaml` (the demo: `127.0.0.1:5440`, `tracker`), after
+`warehouse.database` in `config/client.yaml` (the demo: port 5440, `tracker`), after
 `docker compose up -d` and the `competitor_prices` DAG's catch-up (steps 1 to 5 of
 [`08-build-checklist.md`](08-build-checklist.md)). Nothing is read from files.
 
@@ -43,7 +43,7 @@ your laptop only.
 **Home > Manage parameters > New parameter**, twice:
 
 - Name: `WarehouseServer`, Type: Text, Current value: `warehouse.host`:`warehouse.port` from
-  `config/client.yaml` (the demo: `127.0.0.1:5440`)
+  `config/client.yaml` (the demo: port 5440)
 - Name: `WarehouseDatabase`, Type: Text, Current value: `warehouse.database` (the demo: `tracker`)
 
 Why parameters: the queries name no client's server or database, so a new client changes two
