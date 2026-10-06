@@ -134,6 +134,16 @@ pip install -r requirements.txt pytest && pytest
 | [powerbi/](powerbi/) | The report, step by step |
 | [tests/](tests/) | Page parsing and name matching |
 
+## 🏗️ For engineers
+
+Every table and view in the warehouse, what it is built from, and the row counts saved after the runs up to 4 October 2026:
+
+![Data flow, table by table](docs/data-flow.svg)
+
+The star schema Power BI builds on top of it:
+
+![The star schema](docs/data-model.svg)
+
 ## 🗂️ Data
 
 - **Grocery prices:** [Open Prices](https://prices.openfoodfacts.org) by Open Food Facts, shelf
