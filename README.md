@@ -14,6 +14,8 @@
   <img src="https://img.shields.io/badge/Power_BI-Report-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" alt="Power BI">
 </p>
 
+> 📖 **New to data?** [The project explained, from zero](docs/explained.md): every word, every number and the interview questions, in plain words.
+
 <h3 align="center">Know the week a competitor changes a price, and get an email<br>when one cuts a key product below yours.</h3>
 
 ## The problem
@@ -115,7 +117,7 @@ docker compose up -d --build  # Airflow on port 8090, warehouse on port 5440
 ```
 
 Open Airflow, unpause `competitor_prices`, and it catches up one week at a time from
-September 2025 (about half an hour), then runs every Sunday. Only the latest week reads the web
+September 2025, then runs every Sunday. Only the latest week reads the web
 shops and sends the email: their pages show today's prices only. To re-run a step for one week,
 open that run in Airflow and press **Clear** on the task (on Airflow 3.3 the `airflow tasks
 clear` command did nothing here; the UI and the REST API work).
