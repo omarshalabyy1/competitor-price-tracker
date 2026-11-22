@@ -146,13 +146,17 @@ pip install -r requirements.txt pytest && pytest
 
 ## 🏗️ For engineers
 
-Every table and view in the warehouse, what it is built from, and the row counts saved after the runs up to 4 October 2026:
+The whole system: four sources, 5 tables and 4 views in PostgreSQL 17, three readers, and Airflow running it every Sunday:
 
-![Data flow, table by table](docs/data-flow.svg)
+![High level architecture: catalogue.csv, client.yaml, the Open Prices API for 9 grocery stores and the pages of 2 web shops load 5 PostgreSQL tables (prices inserted only, never updated or deleted); 4 views find one price per listing per day, each change, the latest gap and the undercuts; the Power BI report (Power Query, 3 facts and 3 dimensions, 13 DAX measures, 2 pages), analysis.ipynb and the alert email read them; Apache Airflow runs the competitor_prices DAG every Sunday in Docker Compose](docs/architecture.drawio.svg)
+
+Every table and view in the warehouse and what it is built from, one line per table read:
+
+![Data flow: catalogue.csv loads product, client.yaml loads store, the Open Prices API and the web shop pages load listing and price_observation; daily_price reads listing and price_observation; price_change and price_gap read daily_price and product; undercut reads price_change, product and store; alert_sent is written from undercut; Power BI reads product, store, daily_price, price_change and price_gap, analysis.ipynb reads all nine, the alert email reads undercut](docs/data-flow.drawio.svg)
 
 The star schema Power BI builds on top of it:
 
-![The star schema](docs/data-model.svg)
+![Star schema: Daily Price (1,018 rows), Price Change (127) and Price Gap (824) in the middle; Product (360) and Store (11) above, Date (808) below; 8 one-to-many relationships, none from Date to Price Gap](docs/star-schema.drawio.svg)
 
 ## 🗂️ Data
 
